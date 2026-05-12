@@ -1,0 +1,9 @@
+footer { padding: 80px 0; border-top: 1px solid var(--border); background-color: var(--bg-dark); }
+.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+
+@media (max-width: 1024px) {
+    .sidebar { width: 80px; padding: 40px 10px; }
+    .sidebar span { display: none; }
+    .main-content { margin-left: 80px; }
+    .nav-links { display: none; }
+}
