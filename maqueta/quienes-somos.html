@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiénes Somos | SharedSpaceManager</title>
     <link rel="stylesheet" href="css/quienes-somos.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+ <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="assets/logo.png" alt="Logo">
-            <span>SharedSpaceManager</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-            <li><a href="dashboard-user.html" class="btn btn-outline">Iniciar Sesión</a></li>
-        </ul>
+      <div class="logo">
+        <img src="./assets/logo.png" alt="Logo" />
+        <span class="logo-text">SharedSpaceManager</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./quienes-somos.html">Quiénes Somos</a></li>
+        <li><a href="./dashboard-admin.html" class="nav-link-admin">Admin</a></li>
+        <li><a href="./dashboard-user.html">Usuario</a></li>
+        <li><a href="./login.html" class="btn login-btn">Iniciar Sesión</a></li>
+      </ul>
     </nav>
 
     <header style="padding: 80px 0; text-align: center;">
@@ -60,8 +65,42 @@
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 60px 0; color: var(--text-muted);">
-        &copy; 2026 SharedSpaceManager.
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo footer-logo">
+              <img src="../assets/logo.png" alt="Logo" />
+              <span class="logo-text">SharedSpaceManager</span>
+            </div>
+            <p class="footer-description">
+              Soluciones modernas para la gestión de entornos compartidos y
+              coworking.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-heading">Plataforma</h4>
+            <ul class="footer-links">
+              <li><a href="dashboard-user.html">Dashboard Usuario</a></li>
+              <li><a href="dashboard-admin.html">Dashboard Admin</a></li>
+              <li><a href="#">Seguridad</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-heading">Compañía</h4>
+            <ul class="footer-links">
+              <li><a href="#">Nosotros</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer-copy">
+          &copy; 2026 SharedSpaceManager. Todos los derechos reservados.
+        </p>
+      </div>
     </footer>
 
 </body>
