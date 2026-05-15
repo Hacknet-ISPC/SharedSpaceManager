@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - SharedSpaceManager</title>
+    <link rel="stylesheet" href="/maqueta/css/dashboard-admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <aside class="aside-menu">
+            <a href="/maqueta/index.html">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="SharedSpace">
+                    <span>SharedSpace</span>
+                </div>
+            </a>
+            <ul class="nav-lista">
+                <li><a href="#" class="nav-activo">Panel General</a></li>
+                <li><a href="#">Espacios</a></li>
+                <li><a href="#">Reservas</a></li>
+                <li><a href="#">Usuarios</a></li>
+                <li><a href="index.html" class="nav-salir">Salir</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+
+            <div class="encabezado">
+                <h1>Resumen del sistema</h1>
+                <span>Hola, Administrador</span>
+            </div>
+
+            <div class="resumen">
+                <div class="info-card">
+                    <span class="card-title">Total Reservas</span>
+                    <span class="card-val">1.284</span>
+                </div>
+                <div class="info-card">
+                    <span class="card-title">Usuarios</span>
+                    <span class="card-val">42</span>
+                </div>
+                <div class="info-card">
+                    <span class="card-title">Ocupación</span>
+                    <span class="card-val">78%</span>
+                </div>
+            </div>
+
+            <div class="seccion-tabla">
+                <h3>Últimos movimientos</h3>
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Lugar</th>
+                            <th>Horario</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Carlos G.</td>
+                            <td>Sala Principal</td>
+                            <td>12/05 - 10:00</td>
+                            <td><span class="tag tag-ok">Ok</span></td>
+                        </tr>
+                        <tr>
+                            <td>Lucía F.</td>
+                            <td>Oficina 04</td>
+                            <td>12/05 - 14:30</td>
+                            <td><span class="tag tag-ok">Ok</span></td>
+                        </tr>
+                        <tr>
+                            <td>Andrés P.</td>
+                            <td>Sala B</td>
+                            <td>13/05 - 09:00</td>
+                            <td><span class="tag tag-wait">Pendiente</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

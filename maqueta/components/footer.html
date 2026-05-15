@@ -1,33 +1,55 @@
-<!-- FOOTER COMPONENT -->
-<footer>
-    <div class="container">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footer - SharedSpaceManager</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/maqueta/css/footer.css" />
+  </head>
+  <body>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
         <div class="footer-content">
-            <div style="max-width: 300px;">
-                <div class="logo" style="margin-bottom: 20px;">
-                    <img src="assets/logo.png" alt="Logo">
-                    <span>SharedSpaceManager</span>
-                </div>
-                <p style="color: var(--text-muted);">Soluciones modernas para la gestión de entornos compartidos y coworking.</p>
+          <div class="footer-brand">
+            <div class="logo footer-logo">
+              <img src="/maqueta/assets/logo.png" alt="Logo" />
+              <span class="logo-text">SharedSpaceManager</span>
             </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Plataforma</h4>
-                <ul style="color: var(--text-muted);">
-                    <li><a href="#">Características</a></li>
-                    <li><a href="#">Precios</a></li>
-                    <li><a href="#">Seguridad</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Compañía</h4>
-                <ul style="color: var(--text-muted);">
-                    <li><a href="quienes-somos.html">Nosotros</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
-            </div>
+            <p class="footer-description">
+              Soluciones modernas para la gestión de entornos compartidos y
+              coworking.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-heading">Plataforma</h4>
+            <ul class="footer-links">
+              <li><a href="/maqueta/dashboard-user.html">Dashboard Usuario</a></li>
+              <li><a href="/maqueta/dashboard-admin.html">Dashboard Admin</a></li>
+              <li><a href="#">Seguridad</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-heading">Compañía</h4>
+            <ul class="footer-links">
+              <li><a href="/maqueta/quienes-somos.html">Nosotros</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </div>
         </div>
-        <div style="text-align: center; margin-top: 50px; color: var(--text-muted); font-size: 0.9rem;">
-            &copy; 2026 SharedSpaceManager. Todos los derechos reservados.
-        </div>
-    </div>
-</footer>
+        <p class="footer-copy">
+          &copy; 2026 SharedSpaceManager. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+  </body>
+</html>

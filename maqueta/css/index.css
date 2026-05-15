@@ -1,162 +1,173 @@
 
 
 :root {
-    --color-fondo: #0f172a;
-    --color-tarjeta: #1e293b;
-    --color-primario: #3b82f6;
-    --color-primario-hover: #2563eb;
-    --color-acento: #60a5fa;
-    --color-texto: #f8fafc;
-    --color-texto-suave: #94a3b8;
-    --color-borde: rgba(255, 255, 255, 0.07);
+  --color-fondo: #0f172a;
+  --color-tarjeta: #1e293b;
+  --color-primario: #3b82f6;
+  --color-primario-hover: #2563eb;
+  --color-acento: #60a5fa;
+  --color-texto: #f8fafc;
+  --color-texto-suave: #94a3b8;
+  --color-borde: rgba(255, 255, 255, 0.07);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    line-height: 1.6;
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    border: none;
-    text-align: center;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+.login-btn {
+    border: 1.5px solid var(--color-primario);
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
 .btn-primary {
-    background-color: var(--color-primario);
-    color: white;
+  background-color: var(--color-primario);
+  color: white;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-primario-hover);
+  background-color: var(--color-primario-hover);
 }
 
 .btn-outline {
-    background-color: transparent;
-    border: 1.5px solid var(--color-primario);
-    color: var(--color-primario);
+  background-color: transparent;
+  border: 1.5px solid var(--color-primario);
+  color: var(--color-primario);
 }
 
 .btn-outline:hover {
-    background-color: var(--color-primario);
-    color: white;
+  background-color: var(--color-primario);
+  color: white;
 }
 
 
 .hero {
-    padding: 120px 0;
-    text-align: center;
-    background-color: var(--color-fondo);
+  padding: 120px 0;
+  text-align: center;
+  background-color: var(--color-fondo);
 }
 
 .hero-title {
-    font-size: 3.2rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .hero-title-highlight {
-    color: var(--color-primario);
+  color: var(--color-primario);
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    color: var(--color-texto-suave);
-    max-width: 680px;
-    margin: 0 auto 40px;
+  font-size: 1.2rem;
+  color: var(--color-texto-suave);
+  max-width: 680px;
+  margin: 0 auto 40px;
 }
 
 .hero-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
 }
 
 .section {
-    padding: 80px 0;
+  padding: 80px 0;
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .section-title h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 12px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .section-subtitle {
-    color: var(--color-texto-suave);
-    font-size: 1rem;
+  color: var(--color-texto-suave);
+  font-size: 1rem;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 
 
 .card {
-    background-color: var(--color-tarjeta);
-    padding: 28px;
-    border-radius: 16px;
-    border: 1px solid var(--color-borde);
+  background-color: var(--color-tarjeta);
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid var(--color-borde);
 }
 
 .card:hover {
-    border-color: var(--color-primario);
+  border-color: var(--color-primario);
 }
 
 .card-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-acento);
-    margin-bottom: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-acento);
+  margin-bottom: 12px;
 }
 
 
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2rem;
-    }
+  .hero-title {
+    font-size: 2rem;
+  }
 
     .hero-buttons {
         flex-direction: column;

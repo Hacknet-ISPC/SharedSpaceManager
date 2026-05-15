@@ -1,0 +1,275 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --bg-sidebar: #0f172a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #60a5fa;
+  --border: rgba(255, 255, 255, 0.05);
+  --shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-dark);
+  font-family: "DM Sans", sans-serif;
+  color: var(--text-main);
+  padding: 1.5rem;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  padding: 2.5rem 2.25rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow:
+    var(--shadow),
+    0 0 0 1px rgba(59, 130, 246, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: cardIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* linea de arriba estilo propio */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.5;
+  border-radius: 0 0 4px 4px;
+}
+
+.mark {
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  animation: fadeSlide 0.5s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+  animation: fadeSlide 0.5s 0.05s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.back-btn:hover {
+  color: var(--accent);
+  gap: 0.5rem;
+}
+
+h1 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.85rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  animation: fadeSlide 0.5s 0.15s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  animation: fadeSlide 0.5s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.field + .field {
+  animation-delay: 0.25s;
+}
+
+label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.field:focus-within label {
+  color: var(--accent);
+}
+
+input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 0.7rem 0.9rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-main);
+  outline: none;
+  transition: var(--transition);
+  width: 100%;
+}
+
+input::placeholder {
+  color: rgba(148, 163, 184, 0.35);
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+input:focus {
+  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(59, 130, 246, 0.05);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+input:hover:not(:focus) {
+  border-color: rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.forgot {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-align: right;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+  animation: fadeSlide 0.5s 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.forgot:hover {
+  color: var(--accent);
+}
+
+button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  animation: fadeSlide 0.5s 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+button:hover {
+  background: var(--primary-hover);
+  box-shadow:
+    0 0 20px rgba(59, 130, 246, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.signup {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  animation: fadeSlide 0.5s 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.signup a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.signup a:hover {
+  color: var(--text-main);
+}
+
+/* division entre campos */
+.field:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
