@@ -1,37 +1,18 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --bg-dark: #0f172a;
-  --bg-card: #1e293b;
-  --bg-sidebar: #0f172a;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --accent: #60a5fa;
-  --border: rgba(255, 255, 255, 0.05);
-  --shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 body {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-dark);
   font-family: "DM Sans", sans-serif;
-  color: var(--text-main);
   padding: 1.5rem;
 }
 
+/* Sobreescribimos la fuente base sólo para esta página */
+:root {
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card principal */
 .card {
   position: relative;
   z-index: 1;
@@ -59,7 +40,7 @@ body {
   }
 }
 
-/* linea de arriba estilo propio */
+/* Línea decorativa superior */
 .card::before {
   content: "";
   position: absolute;
@@ -94,7 +75,6 @@ body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
-  text-decoration: none;
   margin-bottom: 1.25rem;
   transition:
     color 0.2s ease,
@@ -118,6 +98,7 @@ h1 {
   animation: fadeSlide 0.5s 0.15s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
+/* Campos del formulario */
 .field {
   display: flex;
   flex-direction: column;
@@ -128,6 +109,10 @@ h1 {
 
 .field + .field {
   animation-delay: 0.25s;
+}
+
+.field:last-of-type {
+  margin-bottom: 0.5rem;
 }
 
 label {
@@ -176,13 +161,13 @@ input:hover:not(:focus) {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* Enlace "olvidé contraseña" */
 .forgot {
   display: block;
   font-family: "DM Mono", monospace;
   font-size: 0.68rem;
   font-weight: 300;
   color: var(--text-muted);
-  text-decoration: none;
   text-align: right;
   margin-bottom: 1.75rem;
   letter-spacing: 0.03em;
@@ -194,6 +179,7 @@ input:hover:not(:focus) {
   color: var(--accent);
 }
 
+/* Botón principal */
 button {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -232,11 +218,7 @@ button:hover {
   transform: translateY(-1px);
 }
 
-button:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
+/* Enlace de registro */
 .signup {
   margin-top: 1.4rem;
   text-align: center;
@@ -248,18 +230,12 @@ button:active {
 
 .signup a {
   color: var(--accent);
-  text-decoration: none;
   font-weight: 400;
   transition: color 0.2s ease;
 }
 
 .signup a:hover {
   color: var(--text-main);
-}
-
-/* division entre campos */
-.field:last-of-type {
-  margin-bottom: 0.5rem;
 }
 
 @keyframes fadeSlide {

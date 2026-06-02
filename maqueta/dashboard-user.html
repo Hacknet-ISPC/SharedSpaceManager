@@ -1,94 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Panel | SharedSpaceManager</title>
-    <link rel="stylesheet" href="css/dashboard-user.css">
+    <link rel="stylesheet" href="./css//app.css">
+    <link rel="stylesheet" href="./css/dashboard-user.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <div class="dashboard-container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">
                 <img src="assets/logo.png" alt="Logo">
-                <span>SharedSpace<br>Manager</span>
+                <span class="logo-name">SharedSpace<br>Manager</span>
             </div>
             <nav>
                 <ul class="sidebar-nav">
-                    <li><a href="dashboard-user.html" class="active"><span>🏠</span> &nbsp; <span>Inicio</span></a></li>
-                    <li><a href="#"><span>🔍</span> &nbsp; <span>Buscar Espacio</span></a></li>
-                    <li><a href="#"><span>📅</span> &nbsp; <span>Mis Reservas</span></a></li>
-                    <li><a href="#"><span>👤</span> &nbsp; <span>Mi Perfil</span></a></li>
-                    <li style="margin-top: 50px;"><a href="index.html" style="color: var(--danger);"><span>🚪</span> &nbsp; <span>Cerrar Sesión</span></a></li>
+                    <li><a href="dashboard-user.html" class="active"><span>🏠</span> <span>Inicio</span></a></li>
+                    <li><a href="#"><span>🔍</span> <span>Buscar Espacio</span></a></li>
+                    <li><a href="#"><span>📅</span> <span>Mis Reservas</span></a></li>
+                    <li><a href="#"><span>👤</span> <span>Mi Perfil</span></a></li>
+                    <li class="nav-item-logout"><a href="index.html"><span>🚪</span> <span>Cerrar Sesión</span></a></li>
                 </ul>
             </nav>
         </aside>
 
-        <!-- Main Content -->
         <main class="main-content">
-            <header style="margin-bottom: 40px;">
-                <h1 style="font-size: 2.2rem; font-weight: 800;">¡Hola de nuevo, <span style="color: var(--primary);">Usuario!</span></h1>
-                <p style="color: var(--text-muted); font-size: 1.1rem;">Tienes 2 reservas próximas para esta semana.</p>
+            <header class="main-header">
+                <h1>¡Hola de nuevo, <span class="highlight">Usuario!</span></h1>
+                <p>Tienes 2 reservas próximas para esta semana.</p>
             </header>
 
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
-                
+            <div class="content-grid">
                 <div>
-                    <h2 style="margin-bottom: 24px;">Tus Próximas Reservas</h2>
-                    <div class="card" style="margin-bottom: 20px; border-left: 4px solid var(--primary);">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 class="reservas-title">Tus Próximas Reservas</h2>
+
+                    <div class="card card-reserva">
+                        <div class="card-reserva-inner">
                             <div>
-                                <h4 style="font-size: 1.25rem; font-weight: 700;">Sala de Creatividad</h4>
-                                <p style="color: var(--text-muted); margin-top: 5px;">Jueves, 14 de Mayo • 15:00 - 17:00</p>
+                                <h4>Sala de Creatividad</h4>
+                                <p>Jueves, 14 de Mayo • 15:00 - 17:00</p>
                             </div>
                             <span class="status-badge status-active">En 2 días</span>
                         </div>
                     </div>
-                    <div class="card" style="margin-bottom: 40px; border-left: 4px solid var(--accent);">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                    <div class="card card-reserva card-accent">
+                        <div class="card-reserva-inner">
                             <div>
-                                <h4 style="font-size: 1.25rem; font-weight: 700;">Estación de Trabajo 08</h4>
-                                <p style="color: var(--text-muted); margin-top: 5px;">Viernes, 15 de Mayo • 09:00 - 18:00</p>
+                                <h4>Estación de Trabajo 08</h4>
+                                <p>Viernes, 15 de Mayo • 09:00 - 18:00</p>
                             </div>
                             <span class="status-badge status-active">En 3 días</span>
                         </div>
                     </div>
 
-                    <h2 style="margin-bottom: 24px;">Espacios Disponibles</h2>
-                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-                        <div class="card">
-                            <h4 style="font-size: 1.1rem;">Cabina de Zoom</h4>
-                            <p style="font-size: 0.85rem; color: var(--success); margin-top: 8px;">● Disponible ahora</p>
-                            <button class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 10px;">Reservar</button>
+                    <h2 class="reservas-title">Espacios Disponibles</h2>
+                    <div class="espacios-grid">
+                        <div class="card card-espacio">
+                            <h4>Cabina de Zoom</h4>
+                            <p class="disponible">● Disponible ahora</p>
+                            <button class="btn btn-primary">Reservar</button>
                         </div>
-                        <div class="card">
-                            <h4 style="font-size: 1.1rem;">Sala Lounge</h4>
-                            <p style="font-size: 0.85rem; color: var(--success); margin-top: 8px;">● 4 asientos libres</p>
-                            <button class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 10px;">Reservar</button>
+                        <div class="card card-espacio">
+                            <h4>Sala Lounge</h4>
+                            <p class="disponible">● 4 asientos libres</p>
+                            <button class="btn btn-primary">Reservar</button>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <div class="card" style="text-align: center; background: rgba(59, 130, 246, 0.03);">
-                        <div style="width: 80px; height: 80px; background: var(--bg-dark); border: 2px solid var(--primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">👤</div>
-                        <h3 style="font-size: 1.2rem;">Usuario Estándar</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 5px;">Miembro desde Ene 2026</p>
+                    <div class="card perfil-card">
+                        <div class="perfil-avatar">👤</div>
+                        <h3>Usuario Estándar</h3>
+                        <p>Miembro desde Ene 2026</p>
                     </div>
 
-                    <div class="card" style="margin-top: 24px; background: linear-gradient(135deg, var(--primary), #1e40af); color: white; border: none;">
-                        <h4 style="font-size: 1.2rem;">¿Necesitas Soporte?</h4>
-                        <p style="font-size: 0.85rem; margin-top: 12px; opacity: 0.9;">Estamos aquí para ayudarte con cualquier problema en tus reservas.</p>
-                        <button class="btn" style="background: white; color: var(--primary); margin-top: 20px; width: 100%; font-weight: 700;">Contactar</button>
+                    <div class="card soporte-card">
+                        <h4>¿Necesitas Soporte?</h4>
+                        <p>Estamos aquí para ayudarte con cualquier problema en tus reservas.</p>
+                        <button class="btn">Contactar</button>
                     </div>
                 </div>
-
             </div>
         </main>
     </div>
 
 </body>
+
 </html>

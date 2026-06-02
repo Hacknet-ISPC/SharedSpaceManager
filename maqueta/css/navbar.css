@@ -1,69 +1,3 @@
-
-
-/* --- Variables de color y fuente --- */
-:root {
-  --color-fondo: #0f172a;
-  --color-primario: #3b82f6;
-  --color-acento: #60a5fa;
-  --color-texto: #f8fafc;
-  --color-texto-suave: #94a3b8;
-  --color-borde: rgba(255, 255, 255, 0.07);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* =============================================
-   BOTÓN (solo los usados en la navbar)
-   ============================================= */
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  border: none;
-  text-align: center;
-}
-
-.login-btn {
-  border: 1.5px solid var(--color-primario);
-  color: white;
-  transition: all 0.2s ease;
-}
-
-.login-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-/* =============================================
-   NAVBAR
-   ============================================= */
-
 .navbar {
   height: 80px;
   display: flex;
@@ -71,33 +5,21 @@ img {
   justify-content: space-between;
   padding: 0 6%;
   background-color: rgba(15, 23, 42, 0.85);
-  border-bottom: 1px solid var(--color-borde);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-/* Logo (imagen + texto) */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+/* Botón de inicio de sesión en la navbar */
+.login-btn {
+  border: 1.5px solid var(--primary);
+  color: white;
 }
 
-.logo img {
-  height: 40px;
-  width: 40px;
-  border-radius: 10px;
-}
-
-.logo-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-texto);
-  background: linear-gradient(90deg, #fff, var(--color-primario));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.login-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
 /* Links de navegación */
@@ -110,19 +32,18 @@ img {
 .nav-links a {
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-texto-suave);
+  color: var(--text-muted);
 }
 
 .nav-links a:hover {
-  color: var(--color-primario);
+  color: var(--primary);
 }
 
-/* Link especial "Admin" en la navbar */
+/* Link especial "Admin" */
 .nav-link-admin {
   font-size: 0.85rem;
-  color: var(--color-acento);
+  color: var(--accent);
 }
-
 
 @media (max-width: 768px) {
   .nav-links {

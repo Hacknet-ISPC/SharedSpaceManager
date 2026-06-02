@@ -1,82 +1,7 @@
-/* =============================================
-   SharedSpaceManager - footer.css
-   ============================================= */
-
-:root {
-  --color-fondo: #0f172a;
-  --color-primario: #3b82f6;
-  --color-texto: #f8fafc;
-  --color-texto-suave: #94a3b8;
-  --color-borde: rgba(255, 255, 255, 0.07);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--color-fondo);
-  color: var(--color-texto);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* --- Contenedor centrado --- */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* =============================================
-   LOGO (usado dentro del footer)
-   ============================================= */
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo img {
-  height: 40px;
-  width: 40px;
-  border-radius: 10px;
-}
-
-.logo-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-texto);
-  background: linear-gradient(90deg, #fff, var(--color-primario));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* =============================================
-   FOOTER
-   ============================================= */
-
 .footer {
   padding: 70px 0;
-  border-top: 1px solid var(--color-borde);
-  background-color: var(--color-fondo);
+  border-top: 1px solid var(--border);
+  background-color: var(--bg-dark);
 }
 
 .footer-content {
@@ -96,7 +21,7 @@ img {
 }
 
 .footer-description {
-  color: var(--color-texto-suave);
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
@@ -115,23 +40,19 @@ img {
 }
 
 .footer-links a {
-  color: var(--color-texto-suave);
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
 .footer-links a:hover {
-  color: var(--color-primario);
+  color: var(--primary);
 }
 
 .footer-copy {
   text-align: center;
-  color: var(--color-texto-suave);
+  color: var(--text-muted);
   font-size: 0.85rem;
 }
-
-/* =============================================
-   RESPONSIVE
-   ============================================= */
 
 @media (max-width: 768px) {
   .footer-content {
