@@ -1,20 +1,39 @@
-.navbar {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 6%;
+
+:root {
+  --color-fondo: #0f172a;
+  --color-primario: #3b82f6;
+  --color-acento: #60a5fa;
+  --color-texto: #f8fafc;
+  --color-texto-suave: #94a3b8;
+  --color-borde: rgba(255, 255, 255, 0.07);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-fondo); 
+}
+
+
+.custom-navbar {
+  min-height: 80px;
   background-color: rgba(15, 23, 42, 0.85);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
+  backdrop-filter: blur(8px); 
+  border-bottom: 1px solid var(--color-borde);
   z-index: 100;
 }
 
-/* Botón de inicio de sesión en la navbar */
-.login-btn {
-  border: 1.5px solid var(--primary);
-  color: white;
+
+.custom-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 0;
+}
+
+.custom-logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
 }
 
 .login-btn:hover {
@@ -22,31 +41,62 @@
   opacity: 0.9;
 }
 
-/* Links de navegación */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+
+.custom-nav-links {
+  gap: 20px; 
 }
 
-.nav-links a {
+.custom-nav-links .nav-link {
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--color-texto-suave) !important;
+  transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
-  color: var(--primary);
+.custom-nav-links .nav-link:hover {
+  color: var(--color-primario) !important;
 }
 
-/* Link especial "Admin" */
-.nav-link-admin {
-  font-size: 0.85rem;
-  color: var(--accent);
+
+.custom-nav-links .nav-link.nav-link-admin {
+  font-size: 0.95rem; 
+  color: var(--color-acento) !important;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
+
+.custom-login-btn {
+  border: 1.5px solid var(--color-primario) !important;
+  color: white !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.custom-login-btn:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-primario);
+  color: white !important;
+}
+
+
+.custom-toggler {
+  border-color: var(--color-borde);
+}
+
+.custom-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+}
+
+.custom-toggler .navbar-toggler-icon {
+  filter: invert(1); 
+}
+
+
+@media (max-width: 767.98px) {
+  .custom-nav-links {
+    padding: 20px 0 10px 0;
+    gap: 10px;
   }
 }
