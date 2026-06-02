@@ -36,14 +36,9 @@ body {
   border-radius: 10px;
 }
 
-.logo-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-texto);
-  background: linear-gradient(90deg, #fff, var(--color-primario));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.login-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
 

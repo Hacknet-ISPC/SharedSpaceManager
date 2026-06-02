@@ -1,172 +1,8 @@
-/* =============================================
-   SharedSpaceManager - style.css (index)
-   Tema: dark, moderno, SaaS
-   ============================================= */
-
-/* --- Variables de color y fuente --- */
-:root {
-  --color-fondo: #0f172a;
-  --color-tarjeta: #1e293b;
-  --color-primario: #3b82f6;
-  --color-primario-hover: #2563eb;
-  --color-acento: #60a5fa;
-  --color-texto: #f8fafc;
-  --color-texto-suave: #94a3b8;
-  --color-borde: rgba(255, 255, 255, 0.07);
-}
-
-/* --- Reset básico --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--color-fondo);
-  color: var(--color-texto);
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* --- Contenedor centrado --- */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* =============================================
-   BOTONES
-   ============================================= */
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  border: none;
-  text-align: center;
-}
-
-.login-btn {
-    border: 1.5px solid var(--color-primario);
-  color: white;
-  transition: all 0.2s ease;
-}
-
-.login-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-.btn-primary {
-  background-color: var(--color-primario);
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primario-hover);
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 1.5px solid var(--color-primario);
-  color: var(--color-primario);
-}
-
-.btn-outline:hover {
-  background-color: var(--color-primario);
-  color: white;
-}
-
-/* =============================================
-   NAVBAR
-   ============================================= */
-
-.navbar {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 6%;
-  background-color: rgba(15, 23, 42, 0.85);
-  border-bottom: 1px solid var(--color-borde);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-/* Logo (imagen + texto) */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo img {
-  height: 40px;
-  width: 40px;
-  border-radius: 10px;
-}
-
-.logo-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-texto);
-  background: linear-gradient(90deg, #fff, var(--color-primario));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Links de navegación */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.nav-links a {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--color-texto-suave);
-}
-
-.nav-links a:hover {
-  color: var(--color-primario);
-}
-
-/* Link especial "Admin" en la navbar */
-.nav-link-admin {
-  font-size: 0.85rem;
-  color: var(--color-acento);
-}
-
-/* =============================================
-   HERO
-   ============================================= */
-
+/* Hero */
 .hero {
   padding: 120px 0;
   text-align: center;
-  background-color: var(--color-fondo);
+  background-color: var(--bg-dark);
 }
 
 .hero-title {
@@ -177,12 +13,17 @@ img {
 }
 
 .hero-title-highlight {
-  color: var(--color-primario);
+  color: var(--primary);
+}
+
+/* Salto de línea del título resuelto con CSS */
+.hero-title-break {
+  display: block;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: var(--color-texto-suave);
+  color: var(--text-muted);
   max-width: 680px;
   margin: 0 auto 40px;
 }
@@ -193,135 +34,21 @@ img {
   justify-content: center;
 }
 
-/* =============================================
-   SECCIÓN DE FEATURES
-   ============================================= */
-
-.section {
-  padding: 80px 0;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-title h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.section-subtitle {
-  color: var(--color-texto-suave);
-  font-size: 1rem;
-}
-
-/* Grid de tarjetas */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
-
-/* Tarjeta individual */
-.card {
-  background-color: var(--color-tarjeta);
-  padding: 28px;
-  border-radius: 16px;
-  border: 1px solid var(--color-borde);
-}
-
-.card:hover {
-  border-color: var(--color-primario);
-}
-
+/* Cards de features */
 .card-title {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--color-acento);
+  color: var(--accent);
   margin-bottom: 12px;
 }
-
-/* =============================================
-   FOOTER
-   ============================================= */
-
-.footer {
-  padding: 70px 0;
-  border-top: 1px solid var(--color-borde);
-  background-color: var(--color-fondo);
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 50px;
-}
-
-.footer-brand {
-  max-width: 280px;
-}
-
-.footer-logo {
-  margin-bottom: 16px;
-}
-
-.footer-description {
-  color: var(--color-texto-suave);
-  font-size: 0.9rem;
-}
-
-.footer-column {
-  min-width: 140px;
-}
-
-.footer-heading {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  color: var(--color-texto-suave);
-  font-size: 0.9rem;
-}
-
-.footer-links a:hover {
-  color: var(--color-primario);
-}
-
-.footer-copy {
-  text-align: center;
-  color: var(--color-texto-suave);
-  font-size: 0.85rem;
-}
-
-/* =============================================
-   RESPONSIVE (pantallas chicas)
-   ============================================= */
 
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2rem;
   }
 
-  .nav-links {
-    display: none;
-  }
-
   .hero-buttons {
     flex-direction: column;
     align-items: center;
-  }
-
-  .footer-content {
-    flex-direction: column;
   }
 }

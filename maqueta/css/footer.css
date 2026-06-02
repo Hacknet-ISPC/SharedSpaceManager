@@ -42,7 +42,7 @@ body {
 }
 
 .footer-description {
-  color: var(--color-texto-suave);
+  color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -57,14 +57,14 @@ body {
 
 
 .footer-links a {
-  color: var(--color-texto-suave);
+  color: var(--text-muted);
   font-size: 0.9rem;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: var(--color-primario);
+  color: var(--primary);
 }
 
 
@@ -75,6 +75,6 @@ body {
 
 .footer-copy {
   text-align: center;
-  color: var(--color-texto-suave);
+  color: var(--text-muted);
   font-size: 0.85rem;
 }
