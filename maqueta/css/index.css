@@ -1,4 +1,20 @@
-/* Hero */
+:root {
+  
+  --text-muted: #94a3b8;
+  --primary: #3b82f6;
+  
+  /* variables para el Hero y Features */
+  --bg-dark: #0f172a;
+  --accent: #60a5fa;
+  --color-texto: #f8fafc;
+  --color-borde: rgba(255, 255, 255, 0.07);
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--color-texto);
+}
+
 .hero {
   padding: 120px 0;
   text-align: center;
@@ -16,11 +32,6 @@
   color: var(--primary);
 }
 
-/* Salto de línea del título resuelto con CSS */
-.hero-title-break {
-  display: block;
-}
-
 .hero-subtitle {
   font-size: 1.2rem;
   color: var(--text-muted);
@@ -34,7 +45,47 @@
   justify-content: center;
 }
 
-/* Cards de features */
+.section {
+  padding: 80px 0;
+  background-color: var(--bg-dark);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background-color: #1e293b; 
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  padding: 24px;
+  height: 100%;
+  color: var(--color-texto);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
 .card-title {
   font-size: 1.2rem;
   font-weight: 700;
@@ -42,11 +93,15 @@
   margin-bottom: 12px;
 }
 
+.card p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2rem;
   }
-
   .hero-buttons {
     flex-direction: column;
     align-items: center;
