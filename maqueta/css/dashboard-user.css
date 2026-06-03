@@ -85,12 +85,12 @@
   border-left-color: var(--accent) !important;
 }
 
-.card-reserva h4 {
+.card-reserva h3 {
   font-weight: 700;
 }
 
 /* Espacios disponibles */
-.card-espacio h4 {
+.card-espacio h3 {
   font-size: 1.1rem;
   font-weight: 700;
 }
@@ -140,6 +140,17 @@
 .sidebar-nav a:hover {
   background-color: rgba(59, 130, 246, 0.1) !important;
   color: var(--primary) !important;
+}
+
+/* Navbar móvil */
+.navbar-mobile-custom {
+  background-color: var(--bg-dark);
+  z-index: 1050;
+}
+
+.navbar-mobile-logo {
+  width: 35px;
+  height: 35px;
 }
 
 /* Adaptabilidad (Responsive) */
