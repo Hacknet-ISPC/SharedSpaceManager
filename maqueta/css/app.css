@@ -4,6 +4,7 @@
   --primary: #3b82f6;
   --primary-hover: #2563eb;
   --accent: #60a5fa;
+  --hover-and-active: rgba(59, 130, 246, 0.1);
 
   /* Fondos */
   --bg-dark: #0f172a;
@@ -13,6 +14,7 @@
   /* Texto */
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
+  --text-active: #3b82f6;
 
   /* Bordes y sombras */
   --border: rgba(255, 255, 255, 0.07);
@@ -133,7 +135,7 @@ img {
 /* =============================================
    CARDS GENÉRICAS
    ============================================= */
-.card {
+/*.card {
   background-color: var(--bg-card);
   padding: 28px;
   border-radius: 16px;
@@ -143,7 +145,7 @@ img {
 
 .card:hover {
   border-color: var(--primary);
-}
+}*/
 
 /* =============================================
    GRID GENÉRICO
