@@ -1,66 +1,48 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registrarse</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/register.css" />
-  </head>
-  <body>
-    <div class="card">
-      <p class="mark">Shared Space Manager</p>
-      <a href="./index.html" class="back-btn">Volver al Inicio</a>
-      <h1>Crear Cuenta</h1>
 
-      <div class="field">
-        <label for="name">Nombre</label>
-        <input
-          id="name"
-          type="text"
-          placeholder="Tu nombre"
-          autocomplete="name"
-        />
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrarse</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="./css/register.css" />
+</head>
 
-      <div class="field">
-        <label for="email">Correo</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="tu@correo.com"
-          autocomplete="email"
-        />
-      </div>
+<body>
+  <div class="card">
+    <p class="mark">Shared Space Manager</p>
+    <a href="./index.html" class="back-btn">Volver al Inicio</a>
+    <h1>Crear Cuenta</h1>
 
-      <div class="field">
-        <label for="password">Contraseña</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="••••••••"
-          autocomplete="new-password"
-        />
-      </div>
-
-      <div class="field">
-        <label for="confirm-password">Confirmar Contraseña</label>
-        <input
-          id="confirm-password"
-          type="password"
-          placeholder="••••••••"
-          autocomplete="new-password"
-        />
-      </div>
-
-      <button type="button">Crear Cuenta</button>
-
-      <p class="signup">
-        ¿Ya tenes cuenta? <a href="./login.html">Iniciá sesión</a>
-      </p>
+    <div class="field">
+      <label for="name">Nombre</label>
+      <input id="name" type="text" placeholder="Tu nombre" autocomplete="name" />
     </div>
-  </body>
+
+    <div class="field">
+      <label for="email">Correo</label>
+      <input id="email" type="email" placeholder="tu@correo.com" autocomplete="email" />
+    </div>
+
+    <div class="field">
+      <label for="password">Contraseña</label>
+      <input id="password" type="password" placeholder="••••••••" autocomplete="new-password" />
+    </div>
+
+    <div class="field">
+      <label for="confirm-password">Confirmar Contraseña</label>
+      <input id="confirm-password" type="password" placeholder="••••••••" autocomplete="new-password" />
+    </div>
+
+    <button type="button">Crear Cuenta</button>
+
+    <p class="signup">
+      ¿Ya tenes cuenta? <a href="./login.html">Iniciá sesión</a>
+    </p>
+  </div>
+</body>
+
 </html>

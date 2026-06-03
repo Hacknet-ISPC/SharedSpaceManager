@@ -1,94 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Panel | SharedSpaceManager</title>
-    <link rel="stylesheet" href="css/dashboard-user.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/dashboard-user.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+    <!-- Navbar móvil -->
+    <nav class="navbar navbar-expand-lg navbar-dark d-lg-none border-bottom border-secondary p-3" style="background-color: var(--bg-dark); z-index: 1050;">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none" href="index.html">
+                <img src="assets/logo.png" alt="Logo" style="width: 35px; height: 35px;">
+                <span class="logo-text text-light fw-bold fs-6">SharedSpaceManager</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#userMobileNavbar" aria-controls="userMobileNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="userMobileNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-3 gap-2 ps-0">
+                    <li class="nav-item">
+                        <a href="dashboard-user.html" class="nav-link active text-primary fw-semibold p-2">🏠 Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-secondary p-2">🔍 Buscar Espacio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-secondary p-2">📅 Mis Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-secondary p-2">👤 Mi Perfil</a>
+                    </li>
+                    <li class="nav-item border-top border-secondary pt-2 mt-2">
+                        <a href="index.html" class="nav-link text-danger p-2">🚪 Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="dashboard-container">
-        <!-- Sidebar -->
+        <!-- Sidebar escritorio -->
         <aside class="sidebar">
             <div class="logo">
                 <img src="assets/logo.png" alt="Logo">
-                <span>SharedSpace<br>Manager</span>
+                <span class="logo-name">SharedSpace<br>Manager</span>
             </div>
             <nav>
-                <ul class="sidebar-nav">
-                    <li><a href="dashboard-user.html" class="active"><span>🏠</span> &nbsp; <span>Inicio</span></a></li>
-                    <li><a href="#"><span>🔍</span> &nbsp; <span>Buscar Espacio</span></a></li>
-                    <li><a href="#"><span>📅</span> &nbsp; <span>Mis Reservas</span></a></li>
-                    <li><a href="#"><span>👤</span> &nbsp; <span>Mi Perfil</span></a></li>
-                    <li style="margin-top: 50px;"><a href="index.html" style="color: var(--danger);"><span>🚪</span> &nbsp; <span>Cerrar Sesión</span></a></li>
+                <ul class="sidebar-nav nav flex-column gap-2 ps-0">
+                    <li class="nav-item">
+                        <a href="dashboard-user.html" class="active nav-link"><span>🏠</span> <span>Inicio</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span>🔍</span> <span>Buscar Espacio</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span>📅</span> <span>Mis Reservas</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span>👤</span> <span>Mi Perfil</span></a>
+                    </li>
+                    <li class="nav-item nav-item-logout">
+                        <a href="index.html" class="nav-link"><span>🚪</span> <span>Cerrar Sesión</span></a>
+                    </li>
                 </ul>
             </nav>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Contenido principal -->
         <main class="main-content">
-            <header style="margin-bottom: 40px;">
-                <h1 style="font-size: 2.2rem; font-weight: 800;">¡Hola de nuevo, <span style="color: var(--primary);">Usuario!</span></h1>
-                <p style="color: var(--text-muted); font-size: 1.1rem;">Tienes 2 reservas próximas para esta semana.</p>
+            <header class="main-header mb-4">
+                <h1 class="fw-bold">¡Hola de nuevo, <span class="highlight">Usuario!</span></h1>
+                <p class="text-secondary">Tienes 2 reservas próximas para esta semana.</p>
             </header>
 
-            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
-                
-                <div>
-                    <h2 style="margin-bottom: 24px;">Tus Próximas Reservas</h2>
-                    <div class="card" style="margin-bottom: 20px; border-left: 4px solid var(--primary);">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="row g-4 content-grid">
+                <!-- Sección principal: reservas y espacios -->
+                <div class="col-12 col-lg-8">
+                    <h2 class="reservas-title h4 mb-3 text-light">Tus Próximas Reservas</h2>
+
+                    <div class="card card-reserva mb-3 p-3">
+                        <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h4 style="font-size: 1.25rem; font-weight: 700;">Sala de Creatividad</h4>
-                                <p style="color: var(--text-muted); margin-top: 5px;">Jueves, 14 de Mayo • 15:00 - 17:00</p>
+                                <h4 class="h5 mb-1 text-light">Sala de Creatividad</h4>
+                                <p class="text-secondary small mb-0">Jueves, 14 de Mayo • 15:00 - 17:00</p>
                             </div>
-                            <span class="status-badge status-active">En 2 días</span>
-                        </div>
-                    </div>
-                    <div class="card" style="margin-bottom: 40px; border-left: 4px solid var(--accent);">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <h4 style="font-size: 1.25rem; font-weight: 700;">Estación de Trabajo 08</h4>
-                                <p style="color: var(--text-muted); margin-top: 5px;">Viernes, 15 de Mayo • 09:00 - 18:00</p>
-                            </div>
-                            <span class="status-badge status-active">En 3 días</span>
+                            <span class="badge status-badge status-active">En 2 días</span>
                         </div>
                     </div>
 
-                    <h2 style="margin-bottom: 24px;">Espacios Disponibles</h2>
-                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-                        <div class="card">
-                            <h4 style="font-size: 1.1rem;">Cabina de Zoom</h4>
-                            <p style="font-size: 0.85rem; color: var(--success); margin-top: 8px;">● Disponible ahora</p>
-                            <button class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 10px;">Reservar</button>
+                    <div class="card card-reserva card-accent mb-4 p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="h5 mb-1 text-light">Estación de Trabajo 08</h4>
+                                <p class="text-secondary small mb-0">Viernes, 15 de Mayo • 09:00 - 18:00</p>
+                            </div>
+                            <span class="badge status-badge status-active">En 3 días</span>
                         </div>
-                        <div class="card">
-                            <h4 style="font-size: 1.1rem;">Sala Lounge</h4>
-                            <p style="font-size: 0.85rem; color: var(--success); margin-top: 8px;">● 4 asientos libres</p>
-                            <button class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 10px;">Reservar</button>
+                    </div>
+
+                    <h2 class="reservas-title h4 mb-3 text-light">Espacios Disponibles</h2>
+                    <div class="row g-3 espacios-grid">
+                        <div class="col-12 col-sm-6">
+                            <div class="card card-espacio p-3 h-100 d-flex flex-column justify-content-between">
+                                <div>
+                                    <h4 class="h6 text-light mb-1">Cabina de Zoom</h4>
+                                    <p class="disponible small mb-3">● Disponible ahora</p>
+                                </div>
+                                <button class="btn btn-primary w-100">Reservar</button>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="card card-espacio p-3 h-100 d-flex flex-column justify-content-between">
+                                <div>
+                                    <h4 class="h6 text-light mb-1">Sala Lounge</h4>
+                                    <p class="disponible small mb-3">● 4 asientos libres</p>
+                                </div>
+                                <button class="btn btn-primary w-100">Reservar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <div class="card" style="text-align: center; background: rgba(59, 130, 246, 0.03);">
-                        <div style="width: 80px; height: 80px; background: var(--bg-dark); border: 2px solid var(--primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">👤</div>
-                        <h3 style="font-size: 1.2rem;">Usuario Estándar</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 5px;">Miembro desde Ene 2026</p>
+                <!-- Sección lateral: perfil y soporte -->
+                <div class="col-12 col-lg-4">
+                    <div class="card perfil-card p-4 text-center">
+                        <div class="perfil-avatar mx-auto mb-3">👤</div>
+                        <h3 class="h5 text-light mb-1">Usuario Estándar</h3>
+                        <p class="text-secondary small mb-0">Miembro desde Ene 2026</p>
                     </div>
 
-                    <div class="card" style="margin-top: 24px; background: linear-gradient(135deg, var(--primary), #1e40af); color: white; border: none;">
-                        <h4 style="font-size: 1.2rem;">¿Necesitas Soporte?</h4>
-                        <p style="font-size: 0.85rem; margin-top: 12px; opacity: 0.9;">Estamos aquí para ayudarte con cualquier problema en tus reservas.</p>
-                        <button class="btn" style="background: white; color: var(--primary); margin-top: 20px; width: 100%; font-weight: 700;">Contactar</button>
+                    <div class="card soporte-card p-4 mt-4 text-light">
+                        <h4 class="h5 mb-2 text-white">¿Necesitas Soporte?</h4>
+                        <p class="small text-white-50 mb-3">Estamos aquí para ayudarte con cualquier problema en tus reservas.</p>
+                        <button class="btn btn-light w-100 fw-bold">Contactar</button>
                     </div>
                 </div>
-
             </div>
         </main>
     </div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
