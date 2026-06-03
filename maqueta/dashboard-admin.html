@@ -5,89 +5,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - SharedSpaceManager</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/dashboard-admin.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
+    <!-- Navbar mobile (visible solo en pantallas pequeñas) -->
+    <nav class="navbar navbar-admin navbar-dark d-lg-none">
+        <div class="container-fluid">
+            <a href="/maqueta/index.html" class="navbar-brand d-flex align-items-center gap-2">
+                <img src="assets/logo.png" alt="SharedSpace" class="logo-img rounded-2">
+                <span class="fw-bold">SharedSpace</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mobileMenu">
+                <ul class="navbar-nav mt-2">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-activo">
+                            <i class="bi bi-grid-1x2-fill me-2"></i>Panel General
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-building me-2"></i>Espacios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-calendar-check me-2"></i>Reservas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-people me-2"></i>Usuarios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link text-danger">
+                            <i class="bi bi-box-arrow-left me-2"></i>Salir
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="wrapper">
 
-        <aside class="aside-menu">
-            <a href="/maqueta/index.html">
-                <div class="logo">
-                    <img src="assets/logo.png" alt="SharedSpace">
-                    <span>SharedSpace</span>
+        <!-- Sidebar desktop (visible solo en pantallas grandes) -->
+        <aside class="aside-menu d-none d-lg-flex flex-column">
+            <a href="/maqueta/index.html" class="text-decoration-none text-white">
+                <div class="logo d-flex align-items-center gap-2 mb-4">
+                    <img src="assets/logo.png" alt="SharedSpace" class="logo-img rounded-2">
+                    <span class="fw-bold fs-5">SharedSpace</span>
                 </div>
             </a>
-            <ul class="nav-lista">
-                <li><a href="#" class="nav-activo">Panel General</a></li>
-                <li><a href="#">Espacios</a></li>
-                <li><a href="#">Reservas</a></li>
-                <li><a href="#">Usuarios</a></li>
-                <li><a href="index.html" class="nav-salir">Salir</a></li>
+            <ul class="nav flex-column gap-1 flex-grow-1">
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-activo">
+                        <i class="bi bi-grid-1x2-fill me-2"></i>Panel General
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-building me-2"></i>Espacios
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-calendar-check me-2"></i>Reservas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-people me-2"></i>Usuarios
+                    </a>
+                </li>
+                <li class="nav-item mt-auto">
+                    <a href="index.html" class="nav-link text-danger mt-4">
+                        <i class="bi bi-box-arrow-left me-2"></i>Salir
+                    </a>
+                </li>
             </ul>
         </aside>
 
         <main class="content">
 
-            <div class="encabezado">
-                <h1>Resumen del sistema</h1>
-                <span>Hola, Administrador</span>
+            <!-- Encabezado -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h4 fw-bold mb-0">Resumen del sistema</h1>
+                <span class="text-secondary small">
+                    <i class="bi bi-person-circle me-1"></i>Hola, Administrador
+                </span>
             </div>
 
-            <div class="resumen">
-                <div class="info-card">
-                    <span class="card-title">Total Reservas</span>
-                    <span class="card-val">1.284</span>
+            <!-- Cards de resumen -->
+            <div class="row g-3 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body">
+                            <p class="card-text text-secondary small mb-1">
+                                <i class="bi bi-calendar2-check me-1"></i>Total Reservas
+                            </p>
+                            <span class="fs-2 fw-bold text-white">1.284</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <span class="card-title">Usuarios</span>
-                    <span class="card-val">42</span>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body">
+                            <p class="card-text text-secondary small mb-1">
+                                <i class="bi bi-people me-1"></i>Usuarios
+                            </p>
+                            <span class="fs-2 fw-bold text-white">42</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <span class="card-title">Ocupación</span>
-                    <span class="card-val">78%</span>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body">
+                            <p class="card-text text-secondary small mb-1">
+                                <i class="bi bi-graph-up me-1"></i>Ocupación
+                            </p>
+                            <span class="fs-2 fw-bold text-white">78%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="seccion-tabla">
-                <h3>Últimos movimientos</h3>
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>Usuario</th>
-                            <th>Lugar</th>
-                            <th>Horario</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Carlos G.</td>
-                            <td>Sala Principal</td>
-                            <td>12/05 - 10:00</td>
-                            <td><span class="tag tag-ok">Ok</span></td>
-                        </tr>
-                        <tr>
-                            <td>Lucía F.</td>
-                            <td>Oficina 04</td>
-                            <td>12/05 - 14:30</td>
-                            <td><span class="tag tag-ok">Ok</span></td>
-                        </tr>
-                        <tr>
-                            <td>Andrés P.</td>
-                            <td>Sala B</td>
-                            <td>13/05 - 09:00</td>
-                            <td><span class="tag tag-wait">Pendiente</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Tabla de últimos movimientos -->
+            <div class="card bg-dark border-secondary">
+                <div class="card-header border-secondary d-flex align-items-center gap-2">
+                    <i class="bi bi-clock-history text-primary"></i>
+                    <h2 class="mb-0 text-white fs-5">Últimos movimientos</h2>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="text-secondary fw-normal small px-3 py-3">Usuario</th>
+                                    <th class="text-secondary fw-normal small px-3 py-3">Lugar</th>
+                                    <th class="text-secondary fw-normal small px-3 py-3">Horario</th>
+                                    <th class="text-secondary fw-normal small px-3 py-3">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-3 py-3">Carlos G.</td>
+                                    <td class="px-3 py-3">Sala Principal</td>
+                                    <td class="px-3 py-3 text-secondary">12/05 - 10:00</td>
+                                    <td class="px-3 py-3">
+                                        <span class="badge rounded-pill badge-ok">
+                                            <i class="bi bi-check-circle me-1"></i>Ok
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-3">Lucía F.</td>
+                                    <td class="px-3 py-3">Oficina 04</td>
+                                    <td class="px-3 py-3 text-secondary">12/05 - 14:30</td>
+                                    <td class="px-3 py-3">
+                                        <span class="badge rounded-pill badge-ok">
+                                            <i class="bi bi-check-circle me-1"></i>Ok
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-3">Andrés P.</td>
+                                    <td class="px-3 py-3">Sala B</td>
+                                    <td class="px-3 py-3 text-secondary">13/05 - 09:00</td>
+                                    <td class="px-3 py-3">
+                                        <span class="badge rounded-pill badge-pendiente">
+                                            <i class="bi bi-hourglass-split me-1"></i>Pendiente
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-3">María G.</td>
+                                    <td class="px-3 py-3">Sala Este</td>
+                                    <td class="px-3 py-3 text-secondary">14/05 - 11:00</td>
+                                    <td class="px-3 py-3">
+                                        <span class="badge rounded-pill badge-cancelado">
+                                            <i class="bi bi-x-circle me-1"></i>Cancelado
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
         </main>
     </div>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
