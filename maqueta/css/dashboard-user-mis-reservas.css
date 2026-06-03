@@ -1,0 +1,123 @@
+/* --- Distribución del Dashboard --- */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+}
+
+.sidebar-reservas {
+  width: 260px;
+  padding: 30px 20px;
+  border-right: 1px solid var(--border);
+  background-color: var(--bg-sidebar);
+}
+
+.sidebar-reservas .nav-link {
+  color: var(--text-muted);
+  padding: 10px 12px;
+  border-radius: 6px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sidebar-reservas .nav-link:hover,
+.sidebar-reservas .nav-link.active-link {
+  background-color: var(--hover-and-active);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* --- Estadísticas Planas (Sin bordes de colores ni brillos) --- */
+.stat-clean {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-clean .stat-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-clean .stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* --- Separadores de Sección --- */
+.section-divider {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* --- Filas de Reservas Estilo Lista Limpia --- */
+.reserva-flat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Un hover sutil que solo aclara apenas el fondo sin moverse */
+.reserva-flat-row:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Pequeño detalle izquierdo para distinguir las pendientes visualmente */
+.reserva-flat-row.pendiente {
+  border-left: 3px solid var(--warning);
+}
+
+.reserva-icon-mini {
+  font-size: 1.25rem;
+  opacity: 0.8;
+}
+
+/* --- Botón / Enlace de acción simple --- */
+.btn-action-cancel {
+  font-size: 0.85rem;
+  color: var(--danger);
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.btn-action-cancel:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+/* --- Responsive Adaptable --- */
+@media (max-width: 991px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  .sidebar-reservas {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+  }
+  .reserva-flat-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .btn-action-cancel {
+    align-self: flex-end;
+  }
+}

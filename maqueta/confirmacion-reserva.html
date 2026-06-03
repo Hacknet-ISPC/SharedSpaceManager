@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva Confirmada</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/confirmacion-reserva.css">
+</head>
+
+<body>
+
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="card card-success shadow p-5 text-center">
+
+            <div class="success-icon-container mb-4">
+                <div class="success-icon-bg">
+                    <i class="bi bi-check-lg display-4 text-success"></i>
+                </div>
+            </div>
+
+            <h1 class="mb-2 fw-bold text-white">¡Reserva Confirmada!</h1>
+            <p class="text-muted mb-4 px-3">
+                Tu solicitud ha sido procesada correctamente. El espacio seleccionado ya se encuentra bloqueado para tu
+                uso.
+            </p>
+
+            <div class="resumen-reserva p-3 mb-4 rounded-3 text-start">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Estado:</span>
+                    <span class="badge bg-success-soft text-success border border-success-soft">Aprobada</span>
+                </div>
+            </div>
+
+            <div class="d-grid gap-3">
+                <a href="./dashboard-user-mis-reservas.html" class="btn btn-success-custom">
+                    Ir al Dashboard
+                </a>
+                <a href="./formulario-reservas.html" class="btn btn-outline-custom">
+                    Reservar otro espacio
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
