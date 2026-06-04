@@ -1,124 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiénes Somos | SharedSpaceManager</title>
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="./css/quienes-somos.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiénes Somos | SharedSpaceManager</title>
-  <link rel="stylesheet" href="./css/app.css">
-  <link rel="stylesheet" href="./css/quienes-somos.css">
-  <link rel="stylesheet" href="./css/navbar.css">
-  <link rel="stylesheet" href="./css/footer.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-</head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md custom-navbar sticky-top">
+      <div class="container-fluid px-md-5">
+        <a class="navbar-brand custom-logo" href="/maqueta/index.html">
+          <img
+            src="./assets/logo.png"
+            alt="Logo"
+            class="d-inline-block align-text-top"
+          />
+          <span class="logo-text">SharedSpaceManager</span>
+        </a>
 
-<body>
+        <button
+          class="navbar-toggler custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="./assets/logo.png" alt="Logo" />
-      <span class="logo-text">SharedSpaceManager</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="./index.html">Inicio</a></li>
-      <li><a href="./quienes-somos.html">Quiénes Somos</a></li>
-      <li><a href="./dashboard-admin.html" class="nav-link-admin">Admin</a></li>
-      <li><a href="./dashboard-user.html">Usuario</a></li>
-      <li><a href="./login.html" class="btn login-btn">Iniciar Sesión</a></li>
-    </ul>
-  </nav>
-
-  <header style="padding: 80px 0; text-align: center;">
-    <div class="container">
-      <h1 style="font-size: 3.5rem; margin-bottom: 24px; font-weight: 800;">Nuestro Equipo</h1>
-      <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.2rem;">Somos un grupo de
-        desarrolladores apasionados por crear soluciones tecnológicas que faciliten la colaboración.</p>
-    </div>
-  </header>
-
-  <section class="section">
-    <div class="container">
-      <div class="grid">
-        <div class="card" style="text-align: center;">
-          <div
-            style="width: 100px; height: 100px; background: var(--primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: white;">
-            FC</div>
-          <h3>Fabricio Cocconi</h3>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div
-            style="width: 100px; height: 100px; background: var(--primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: white;">
-            AT</div>
-          <h3>Agustín Tanno</h3>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div
-            style="width: 100px; height: 100px; background: var(--primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: white;">
-            VO</div>
-          <h3>Victor Oviedo</h3>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div
-            style="width: 100px; height: 100px; background: var(--primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: white;">
-            MR</div>
-          <h3>Maribel Riesgo</h3>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div
-            style="width: 100px; height: 100px; background: var(--primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: white;">
-            MR</div>
-          <h3>Marcos Reinoso</h3>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div
-            style="width: 100px; height: 100px; background: var(--primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; color: white;">
-            GS</div>
-          <h3>Gadiel Silva</h3>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-md-center custom-nav-links">
+            <li class="nav-item">
+              <a class="nav-link" href="/maqueta/index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/maqueta/quienes-somos.html"
+                >Quiénes Somos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link nav-link-admin"
+                href="/maqueta/dashboard-admin.html"
+                >Admin</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/maqueta/dashboard-user.html"
+                >Usuario</a
+              >
+            </li>
+            <li class="nav-item ms-md-2 mt-3 mt-md-0">
+              <a
+                href="/maqueta/login.html"
+                class="btn custom-login-btn w-100 w-md-auto"
+                >Iniciar Sesión</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <div class="logo footer-logo">
-            <img src="./assets/logo.png" alt="Logo" />
-            <span class="logo-text">SharedSpaceManager</span>
+    <header class="page-header">
+      <div class="container">
+        <h1>Nuestro Equipo</h1>
+
+        <p>
+          Somos un grupo de desarrolladores apasionados por crear soluciones
+          tecnológicas que faciliten la colaboración.
+        </p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="card team-card h-100">
+              <div class="card-body">
+                <img src="./assets/Fabricio.jpg" class="team-avatar" alt="Imagen Miembro del Equipo" />
+                <h2>Fabricio Cocconi</h2>
+                <p class="team-role">Desarrollador</p>
+
+                <a
+                  href="https://www.linkedin.com/in/fabricio-andr%C3%A9s-cocconi-huenz-9592ab356/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-link"
+                >
+                  <i class="bi bi-linkedin"></i>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
-          <p class="footer-description">
-            Soluciones modernas para la gestión de entornos compartidos y
-            coworking.
-          </p>
-        </div>
 
-        <div class="footer-column">
-          <h4 class="footer-heading">Plataforma</h4>
-          <ul class="footer-links">
-            <li><a href="dashboard-user.html">Dashboard Usuario</a></li>
-            <li><a href="dashboard-admin.html">Dashboard Admin</a></li>
-            <li><a href="#">Seguridad</a></li>
-          </ul>
-        </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card team-card h-100">
+              <div class="card-body">
+                <img src="./assets/Agustin.jpg" class="team-avatar" alt="Imagen Miembro del Equipo" />
+                <h2>Agustín Tanno</h2>
+                <p class="team-role">Desarrollador</p>
 
-        <div class="footer-column">
-          <h4 class="footer-heading">Compañía</h4>
-          <ul class="footer-links">
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contacto</a></li>
-          </ul>
+                <a
+                  href="https://www.linkedin.com/in/agustin-tanno-6513542a9/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-link"
+                >
+                  <i class="bi bi-linkedin"></i>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card team-card h-100">
+              <div class="card-body">
+                <img src="./assets/Victor.jpg" class="team-avatar" alt="Imagen Miembro del Equipo" />
+                <h2>Victor Oviedo</h2>
+                <p class="team-role">Desarrollador</p>
+
+                <a
+                  href="https://www.linkedin.com/in/victor-a-oviedo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-link"
+                >
+                  <i class="bi bi-linkedin"></i>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card team-card h-100">
+              <div class="card-body">
+                <img src="./assets/Maribel.jpg" class="team-avatar" alt="Imagen Miembro del Equipo"/>
+                <h2>Maribel Riesgo</h2>
+                <p class="team-role">Desarrollador</p>
+
+                <a
+                  href="https://www.linkedin.com/in/maribel-riesgo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-link"
+                >
+                  <i class="bi bi-linkedin"></i>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card team-card h-100">
+              <div class="card-body">
+                <img src="./assets/Marcos.jpg" class="team-avatar" alt="Imagen Miembro del Equipo" />
+                <h2>Marcos Reinoso</h2>
+                <p class="team-role">Desarrollador</p>
+
+                <a
+                  href="https://www.linkedin.com/in/marcos-david-reinoso-cavoli-67a954375/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-link"
+                >
+                  <i class="bi bi-linkedin"></i>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card team-card h-100">
+              <div class="card-body">
+                <img src="./assets/Gadiel.jpg" class="team-avatar" alt="Imagen Miembro del Equipo"/>
+                <h2>Gadiel Silva</h2>
+                <p class="team-role">Desarrollador</p>
+
+                <a
+                  href="https://www.linkedin.com/in/gadiel-s-4353a9273/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-link"
+                >
+                  <i class="bi bi-linkedin"></i>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p class="footer-copy">
-        &copy; 2026 SharedSpaceManager. Todos los derechos reservados.
-      </p>
-    </div>
-  </footer>
+    </section>
 
-</body>
+    <footer class="custom-footer">
+      <div class="container px-4 px-md-5">
+        <div class="row g-4 mb-5">
+          <div class="col-12 col-md-5 col-lg-6 footer-brand">
+            <div class="d-flex align-items-center gap-2 footer-logo mb-3">
+              <img src="/maqueta/assets/logo.png" alt="Logo" />
+              <span class="logo-text">SharedSpaceManager</span>
+            </div>
+            <p class="footer-description mb-0">
+              Soluciones modernas para la gestión de entornos compartidos y
+              coworking.
+            </p>
+          </div>
 
+          <div class="col-6 col-md-3 col-lg-3">
+            <h3 class="footer-heading">Plataforma</h3>
+            <ul class="list-unstyled footer-links mb-0">
+              <li class="mb-2">
+                <a href="/maqueta/dashboard-user.html">Dashboard Usuario</a>
+              </li>
+              <li class="mb-2">
+                <a href="/maqueta/dashboard-admin.html">Dashboard Admin</a>
+              </li>
+              <li class="mb-2"><a href="#">Seguridad</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <h3 class="footer-heading">Compañía</h3>
+            <ul class="list-unstyled footer-links mb-0">
+              <li class="mb-2">
+                <a href="/maqueta/quienes-somos.html">Nosotros</a>
+              </li>
+              <li class="mb-2"><a href="#">Blog</a></li>
+              <li class="mb-2"><a href="#">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="footer-divider mb-4" />
+        <p class="footer-copy mb-0">
+          &copy; 2026 SharedSpaceManager. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
