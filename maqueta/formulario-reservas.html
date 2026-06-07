@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/formulario-reservas.css">
+
+</head>
+
+<body>
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="card shadow p-4" style="width: 100%; max-width: 500px;">
+            <h1 class="text-center mb-4">Reserva de Espacio</h1>
+
+            <form action="./confirmacion-reserva.html">
+                <!-- Espacio seleccionado -->
+                <div class="mb-3">
+                    <label id="espacio" class="form-label">Espacio seleccionado</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar sala a solicitar</option>
+                        <option value="1">Cabina de Zoom</option>
+                        <option value="2">Sala Loungue</option>
+                    </select>
+                </div>
+
+                <!-- Selección de cantidad de personas -->
+
+                <div class="mb-3">
+                    <label id="cantidad-personas" class="form-label">Cantidad de Personas</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar cantidad de personas</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+
+                <!-- Fecha -->
+                <div class="mb-3">
+                    <label id="fecha" class="form-label">Fecha</label>
+                    <input type="date" class="form-control" required>
+                </div>
+
+                <!-- Hora -->
+                <div class="mb-3">
+                    <button class="btn btn-primary">15:40</button>
+                    <button class="btn btn-primary">16:00</button>
+                    <button class="btn btn-primary">17:00</button>
+                    <button class="btn btn-primary">17:35</button>
+                </div>
+
+                <!-- Botón -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success"
+                        onclick="return confirm('¿Estás seguro de que deseas confirmar esta reserva?')">
+                        Reservar
+                    </button>
+                    <a href="./dashboard-user.html" class="btn btn-danger mt-2">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

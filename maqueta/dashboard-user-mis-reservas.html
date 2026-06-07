@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/dashboard-user-mis-reservas.css">
+    <link rel="stylesheet" href="./css/dashboard-user.css">
+    <title>Mis reservas</title>
+</head>
+
+<body>
+    <!-- Navbar móvil -->
+    <nav class="navbar navbar-expand-lg navbar-dark d-lg-none border-bottom border-secondary p-3 navbar-mobile-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none" href="index.html">
+                <img src="assets/logo.png" alt="Logo" class="navbar-mobile-logo">
+                <span class="logo-text text-light fw-bold fs-6">SharedSpaceManager</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#userMobileNavbar"
+                aria-controls="userMobileNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="userMobileNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-3 gap-2 ps-0">
+                    <li class="nav-item">
+                        <a href="dashboard-user.html" class="nav-link active text-primary fw-semibold p-2"><i
+                                class="bi bi-house-door me-2"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active text-secondary p-2"><i class="bi bi-search me-2"></i> Buscar
+                            Espacio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./dashboard-user-mis-reservas.html" class="nav-link active text-secondary p-2"><i
+                                class="bi bi-calendar3 me-2"></i> Mis
+                            Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active text-secondary p-2"><i class="bi bi-person me-2"></i> Mi
+                            Perfil</a>
+                    </li>
+                    <li class="nav-item border-top border-secondary pt-2 mt-2">
+                        <a href="index.html" class="nav-link text-danger p-2"><i class="bi bi-door-open me-2"></i>
+                            Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="dashboard-container">
+        <!-- Sidebar escritorio -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo">
+                <span class="logo-name">
+                    <span>SharedSpace</span>
+                    <span>Manager</span>
+                </span>
+            </div>
+            <nav>
+                <ul class="sidebar-nav nav flex-column gap-2 ps-0">
+                    <li class="nav-item">
+                        <a href="dashboard-user.html" class="nav-link"><span><i
+                                    class="bi bi-house-door"></i></span><span>Inicio</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span><i class="bi bi-search"></i></span> <span>Buscar
+                                Espacio</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./dashboard-user-mis-reservas.html" class="nav-link active"><span><i
+                                    class="bi bi-calendar3"></i></span> <span>Mis
+                                Reservas</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><span><i class="bi bi-person"></i></span> <span>Mi
+                                Perfil</span></a>
+                    </li>
+                    <li class="nav-item nav-item-logout">
+                        <a href="index.html" class="nav-link"><span><i class="bi bi-door-open"></i></span> <span>Cerrar
+                                Sesión</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content p-4 p-lg-5 w-100">
+            <header class="mb-4">
+                <h1 class="fw-bold h2">Mis <span style="color:var(--primary)">Reservas</span></h1>
+                <p class="text-secondary mb-0">Administrá y hacé seguimiento de todas tus reservas de forma simple.</p>
+            </header>
+
+            <div class="row g-3 mb-5">
+                <div class="col-6 col-lg-3">
+                    <div class="stat-clean">
+                        <span class="stat-num" style="color:var(--primary)">2</span>
+                        <span class="stat-label">Confirmadas</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-clean">
+                        <span class="stat-num" style="color:var(--warning)">3</span>
+                        <span class="stat-label">Pendientes</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-clean">
+                        <span class="stat-num" style="color:var(--success)">8</span>
+                        <span class="stat-label">Completadas</span>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-clean">
+                        <span class="stat-num" style="color:var(--text-muted)">13</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <div class="section-divider mb-3"><i class="bi bi-check-circle-fill text-success me-1"></i> Próximas
+                    Confirmadas</div>
+
+                <div class="reserva-flat-row">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="reserva-icon-mini"><i class="bi bi-palette text-info"></i></span>
+                        <div>
+                            <p class="mb-1 h6 fw-bold text-white">Sala de Creatividad</p>
+                            <p class="mb-0 small">Jueves 14 de Mayo • 15:00 – 17:00 • Piso 3, Sala A</p>
+                        </div>
+                    </div>
+                    <a href="./cancelacion-reserva.html" class="btn-action-cancel">Cancelar</a>
+                </div>
+
+                <div class="reserva-flat-row">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="reserva-icon-mini"><i class="bi bi-laptop text-info"></i></span>
+                        <div>
+                            <p class="mb-1 h6 fw-bold text-white">Estación de Trabajo 08</p>
+                            <p class="mb-0 small">Viernes 15 de Mayo • 09:00 – 18:00 • Piso 2, Open Space</p>
+                        </div>
+                    </div>
+                    <a href="./cancelacion-reserva.html" class="btn-action-cancel">Cancelar</a>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-divider mb-3"><i class="bi bi-clock-history text-warning me-1"></i> Pendientes de
+                    Aprobación</div>
+                <p class="small mb-3 ps-1">Esperando respuesta del administrador. Podés cancelar la solicitud
+                    si lo necesitás.</p>
+
+                <div class="reserva-flat-row pendiente">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="reserva-icon-mini"><i class="bi bi-camera-video text-warning"></i></span>
+                        <div>
+                            <p class="mb-1 h6 fw-bold text-white">Cabina de Zoom</p>
+                            <p class="mb-0 small">Lunes 19 de Mayo • 10:00 – 11:00 • Piso 1, Cabina B</p>
+                        </div>
+                    </div>
+                    <a href="./cancelacion-reserva.html" class="btn-action-cancel">Cancelar</a>
+                </div>
+
+                <div class="reserva-flat-row pendiente">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="reserva-icon-mini"><i class="bi bi-chat-square-heart text-warning"></i></span>
+                        <div>
+                            <p class="mb-1 h6 fw-bold text-white">Sala Lounge</p>
+                            <p class="mb-0 small">Martes 20 de Mayo • 14:00 – 16:00 • Piso 1, Lounge</p>
+                        </div>
+                    </div>
+                    <a href="./cancelacion-reserva.html" class="btn-action-cancel">Cancelar</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

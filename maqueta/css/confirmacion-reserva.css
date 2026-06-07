@@ -1,0 +1,123 @@
+/* Modificación de la tarjeta para el éxito */
+.card-success {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 24px !important;
+  width: 100%;
+  max-width: 450px;
+  color: #ffffff !important;
+  animation: entrarEscala 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+}
+
+.card-success .text-muted {
+  color: #ffffff !important;
+  opacity: 0.8;
+}
+
+.resumen-reserva {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border);
+  color: #ffffff !important;
+}
+
+.success-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-icon-bg {
+  width: 90px;
+  height: 90px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 2px solid rgba(34, 197, 94, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation:
+    pulsarVerde 2s infinite ease-in-out,
+    entrarIcono 0.6s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+/* Caja de resumen sutil */
+.resumen-reserva {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border);
+}
+
+.bg-success-soft {
+  background-color: rgba(34, 197, 94, 0.1) !important;
+}
+.border-success-soft {
+  border-color: rgba(34, 197, 94, 0.2) !important;
+}
+
+/* Botón Principal (Éxito) */
+.btn-success-custom {
+  background-color: var(--success) !important;
+  color: var(--bg-dark) !important;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
+  transition: var(--transition);
+}
+
+.btn-success-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+  color: var(--bg-dark) !important;
+}
+
+/* Botón Secundario (Outline) */
+.btn-outline-custom {
+  background-color: transparent;
+  border: 1.5px solid var(--border) !important;
+  color: var(--text-muted) !important;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.btn-outline-custom:hover {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+  background-color: var(--hover-and-active) !important;
+}
+
+@keyframes entrarEscala {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes entrarIcono {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes pulsarVerde {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
