@@ -35,7 +35,7 @@ El sistema surge como respuesta a la creciente demanda de espacios de trabajo fl
 
 Para ejecutar el proyecto correctamente se recomienda seguir estos pasos:
 
-- Obtener archivos del proyect
+- Obtener archivos del proyecto
     
   ◦ Opcion A: clonar el repositorio "SharedSpaceManager"
   
@@ -48,7 +48,7 @@ Para ejecutar el proyecto correctamente se recomienda seguir estos pasos:
 
 ## Tecnologías utilizadas
 
-> HTLM5 Y CSS3
+> HTLM5, CSS3 Y Bootstrap
 
 ---
 
