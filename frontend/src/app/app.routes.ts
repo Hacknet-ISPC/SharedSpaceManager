@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { AdminLayout } from './layouts/admin-layout/admin-layout';
 import { DashboardAdmin } from './pages/dashboard-admin/dashboard-admin';
+import { UserLayout } from './layouts/user-layout/user-layout';
+import { DashboardInicio } from './pages/dashboard-user/dashboard-inicio/dashboard-inicio';
+import { FormularioReserva } from './pages/dashboard-user/formulario-reserva/formulario-reserva';
+import { MisReservas } from './pages/dashboard-user/mis-reservas/mis-reservas';
+import { ConfirmacionReserva } from './pages/dashboard-user/confirmacion-reserva/confirmacion-reserva';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -11,5 +16,15 @@ export const routes: Routes = [
     children: [
       { path: '', component: DashboardAdmin }
     ]
+  },
+  {
+    path: 'user',
+    component: UserLayout,
+    children: [
+      { path: '', component: DashboardInicio },
+      { path: 'formulario-reserva', component: FormularioReserva },
+      { path: 'mis-reservas', component: MisReservas },
+      { path: 'confirmacion-reserva', component: ConfirmacionReserva }
+    ]
   }
-];
+];

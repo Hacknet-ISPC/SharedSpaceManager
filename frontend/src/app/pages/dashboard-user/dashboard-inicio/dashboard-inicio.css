@@ -1,0 +1,82 @@
+/* Encabezado */
+.main-header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.main-header h1 .highlight {
+  color: var(--primary);
+}
+
+.main-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Tarjetas (Cards) */
+.card {
+  background: var(--bg-dark) !important;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.05)) !important;
+  border-radius: 12px !important;
+}
+
+/* Tarjetas de reservas */
+.card-reserva {
+  border-left: 4px solid var(--primary) !important;
+}
+
+.card-reserva.card-accent {
+  border-left-color: var(--accent) !important;
+}
+
+.card-reserva h3 {
+  font-weight: 700;
+}
+
+/* Badges de estado */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-active {
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+}
+
+/* Espacios disponibles */
+.card-espacio h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.card-espacio .disponible {
+  color: var(--success);
+}
+
+/* Tarjeta de perfil */
+.perfil-card {
+  background: rgba(59, 130, 246, 0.03) !important;
+}
+
+.perfil-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--bg-dark);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Tarjeta de soporte */
+.soporte-card {
+  background: linear-gradient(135deg, var(--primary), #1e40af) !important;
+  border: none !important;
+}

@@ -1,0 +1,96 @@
+<!-- Navbar móvil -->
+<nav class="navbar navbar-expand-lg navbar-dark d-lg-none border-bottom border-secondary p-3 navbar-mobile-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none" routerLink="/user">
+      <img src="logo.png" alt="Logo" class="navbar-mobile-logo">
+      <span class="logo-text text-light fw-bold fs-6">SharedSpaceManager</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#userMobileNavbar"
+      aria-controls="userMobileNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="userMobileNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-3 gap-2 ps-0">
+        <li class="nav-item">
+          <a routerLink="/user" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link text-primary fw-semibold p-2">
+            <i class="bi bi-house-door me-2"></i> Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/user/formulario-reserva" routerLinkActive="active" class="nav-link text-secondary p-2">
+            <i class="bi bi-search me-2"></i> Buscar Espacio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/user/mis-reservas" routerLinkActive="active" class="nav-link text-secondary p-2">
+            <i class="bi bi-calendar3 me-2"></i> Mis Reservas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/user" class="nav-link text-secondary p-2">
+            <i class="bi bi-person me-2"></i> Mi Perfil
+          </a>
+        </li>
+        <li class="nav-item border-top border-secondary pt-2 mt-2">
+          <a routerLink="/" class="nav-link text-danger p-2">
+            <i class="bi bi-door-open me-2"></i> Cerrar Sesión
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="dashboard-container">
+  <!-- Sidebar escritorio -->
+  <aside class="sidebar">
+    <a routerLink="/user" class="text-decoration-none">
+      <div class="logo">
+        <img src="logo.png" alt="Logo">
+        <span class="logo-name">
+          <span>SharedSpace</span>
+          <span>Manager</span>
+        </span>
+      </div>
+    </a>
+    <nav>
+      <ul class="sidebar-nav nav flex-column gap-2 ps-0">
+        <li class="nav-item">
+          <a routerLink="/user" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+            <span><i class="bi bi-house-door"></i></span>
+            <span>Inicio</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/user/formulario-reserva" routerLinkActive="active" class="nav-link">
+            <span><i class="bi bi-search"></i></span>
+            <span>Buscar Espacio</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/user/mis-reservas" routerLinkActive="active" class="nav-link">
+            <span><i class="bi bi-calendar3"></i></span>
+            <span>Mis Reservas</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/user" class="nav-link">
+            <span><i class="bi bi-person"></i></span>
+            <span>Mi Perfil</span>
+          </a>
+        </li>
+        <li class="nav-item nav-item-logout">
+          <a routerLink="/" class="nav-link">
+            <span><i class="bi bi-door-open"></i></span>
+            <span>Cerrar Sesión</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

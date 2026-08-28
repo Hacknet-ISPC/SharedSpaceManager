@@ -1,0 +1,65 @@
+<header class="main-header mb-4">
+  <h1 class="fw-bold">¡Hola de nuevo, <span class="highlight">{{ usuarioNombre }}!</span></h1>
+  <p class="text-secondary">Tienes {{ reservasSemanalesCount }} reservas próximas para esta semana.</p>
+</header>
+
+<div class="row g-4 content-grid">
+  <!-- Sección principal: reservas y espacios -->
+  <div class="col-12 col-lg-8">
+    <h2 class="reservas-title h4 mb-3 text-light">
+      <i class="bi bi-calendar-check text-primary me-2"></i>Tus Próximas Reservas
+    </h2>
+
+    @for (reserva of proximasReservas; track reserva.id) {
+      <div class="card card-reserva mb-3 p-3" [class.card-accent]="reserva.acento">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h3 class="h5 mb-1 text-light">{{ reserva.sala }}</h3>
+            <p class="text-secondary small mb-0">{{ reserva.horario }}</p>
+          </div>
+          <span class="badge status-badge status-active">{{ reserva.tiempoRestante }}</span>
+        </div>
+      </div>
+    } @empty {
+      <div class="card p-3 mb-3 text-center">
+        <p class="text-secondary mb-0">No tienes reservas próximas registradas.</p>
+      </div>
+    }
+
+    <h2 class="reservas-title h4 mb-3 text-light mt-4">Espacios Disponibles</h2>
+    <div class="row g-3 espacios-grid">
+      @for (espacio of espaciosDisponibles; track espacio.id) {
+        <div class="col-12 col-sm-6">
+          <div class="card card-espacio p-3 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="h6 text-light mb-1">{{ espacio.nombre }}</h3>
+              <p class="disponible small mb-3">{{ espacio.disponibilidad }}</p>
+            </div>
+            <a routerLink="/user/formulario-reserva" class="btn btn-primary w-100">Reservar</a>
+          </div>
+        </div>
+      } @empty {
+        <div class="col-12">
+          <p class="text-secondary small">No hay espacios disponibles en este momento.</p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Sección lateral: perfil y soporte -->
+  <div class="col-12 col-lg-4">
+    <div class="card perfil-card p-4 text-center">
+      <div class="perfil-avatar mx-auto mb-3">👤</div>
+      <h2 class="h5 text-light mb-1">Usuario Estándar</h2>
+      <p class="text-secondary small mb-0">Miembro desde Ene 2026</p>
+    </div>
+
+    <div class="card soporte-card p-4 mt-4 text-light">
+      <h2 class="h5 mb-2 text-white">¿Necesitas Soporte?</h2>
+      <p class="small text-white-50 mb-3">
+        Estamos aquí para ayudarte con cualquier problema en tus reservas.
+      </p>
+      <button type="button" class="btn btn-light w-100 fw-bold">Contactar</button>
+    </div>
+  </div>
+</div>
