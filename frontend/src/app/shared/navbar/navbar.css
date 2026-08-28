@@ -1,0 +1,96 @@
+
+
+.custom-navbar {
+  min-height: 80px;
+  background-color: var(--color-fondo);
+  backdrop-filter: blur(8px); 
+  border-bottom: 1px solid var(--color-borde);
+  z-index: 100;
+}
+
+
+.custom-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 0;
+}
+
+.custom-logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+
+.custom-nav-links {
+  gap: 20px; 
+}
+
+.custom-nav-links .nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-texto-suave) !important;
+  transition: color 0.2s ease;
+}
+
+.custom-nav-links .nav-link:hover {
+  color: var(--color-primario) !important;
+}
+
+
+.custom-nav-links .nav-link.nav-link-admin {
+  font-size: 0.95rem; 
+  color: var(--color-acento) !important;
+}
+
+
+.custom-login-btn {
+  border: 1.5px solid var(--color-primario) !important;
+  color: white !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.custom-login-btn:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-primario);
+  color: white !important;
+}
+
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fff, var(--color-primario));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.custom-toggler {
+  border-color: var(--color-borde);
+}
+
+.custom-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(246, 59, 59, 0.25);
+}
+
+.custom-toggler .navbar-toggler-icon {
+  filter: invert(1); 
+}
+
+
+@media (max-width: 767.98px) {
+  .custom-nav-links {
+    padding: 20px 0 10px 0;
+    gap: 10px;
+  }
+}
