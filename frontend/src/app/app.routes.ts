@@ -7,9 +7,11 @@ import { DashboardInicio } from './pages/dashboard-user/dashboard-inicio/dashboa
 import { FormularioReserva } from './pages/dashboard-user/formulario-reserva/formulario-reserva';
 import { MisReservas } from './pages/dashboard-user/mis-reservas/mis-reservas';
 import { ConfirmacionReserva } from './pages/dashboard-user/confirmacion-reserva/confirmacion-reserva';
+import { About } from './pages/about/about';
 
 export const routes: Routes = [
   { path: '', component: Home },
+  { path: 'about', component: About},
   {
     path: 'admin',
     component: AdminLayout,
@@ -27,4 +29,4 @@ export const routes: Routes = [
       { path: 'confirmacion-reserva', component: ConfirmacionReserva }
     ]
   }
-];
+];
