@@ -1,0 +1,86 @@
+/* Estadísticas Planas */
+.stat-clean {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-clean .stat-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-clean .stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Separadores de Sección */
+.section-divider {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Filas de Reservas Estilo Lista */
+.reserva-flat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+
+.reserva-flat-row:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.reserva-flat-row.pendiente {
+  border-left: 3px solid var(--warning);
+}
+
+.reserva-icon-mini {
+  font-size: 1.25rem;
+  opacity: 0.8;
+}
+
+/* Botón de acción simple */
+.btn-action-cancel {
+  font-size: 0.85rem;
+  color: var(--danger);
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-action-cancel:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .reserva-flat-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .btn-action-cancel {
+    align-self: flex-end;
+  }
+}

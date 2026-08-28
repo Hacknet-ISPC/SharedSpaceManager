@@ -1,0 +1,96 @@
+<header class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+  <div>
+    <h1 class="fw-bold h2 mb-1">Mis <span style="color:var(--primary)">Reservas</span></h1>
+    <p class="text-secondary mb-0">Administrá y hacé seguimiento de todas tus reservas de forma simple.</p>
+  </div>
+  <a routerLink="/user/formulario-reserva" class="btn btn-primary">
+    <i class="bi bi-plus-lg me-1"></i>Nueva Reserva
+  </a>
+</header>
+
+<!-- Tarjetas de estadísticas -->
+<div class="row g-3 mb-5">
+  <div class="col-6 col-lg-3">
+    <div class="stat-clean">
+      <span class="stat-num" style="color:var(--primary)">{{ estadisticas.confirmadas }}</span>
+      <span class="stat-label">Confirmadas</span>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="stat-clean">
+      <span class="stat-num" style="color:var(--warning)">{{ estadisticas.pendientes }}</span>
+      <span class="stat-label">Pendientes</span>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="stat-clean">
+      <span class="stat-num" style="color:var(--success)">{{ estadisticas.completadas }}</span>
+      <span class="stat-label">Completadas</span>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="stat-clean">
+      <span class="stat-num" style="color:var(--text-muted)">{{ estadisticas.total }}</span>
+      <span class="stat-label">Total</span>
+    </div>
+  </div>
+</div>
+
+<!-- Sección Próximas Confirmadas -->
+<div class="mb-5">
+  <div class="section-divider mb-3">
+    <i class="bi bi-check-circle-fill text-success me-1"></i> Próximas Confirmadas
+  </div>
+
+  @for (reserva of reservasConfirmadas; track reserva.id) {
+    <div class="reserva-flat-row">
+      <div class="d-flex align-items-center gap-3">
+        <span class="reserva-icon-mini">
+          <i class="bi" [class]="reserva.icono + ' text-info'"></i>
+        </span>
+        <div>
+          <p class="mb-1 h6 fw-bold text-white">{{ reserva.sala }}</p>
+          <p class="mb-0 small text-secondary">{{ reserva.detalle }}</p>
+        </div>
+      </div>
+      <button type="button" class="btn-action-cancel" (click)="cancelarReserva(reserva.id, 'confirmada')">
+        Cancelar
+      </button>
+    </div>
+  } @empty {
+    <div class="p-3 text-center border border-secondary rounded-3 mb-3">
+      <p class="text-secondary mb-0 small">No tienes reservas confirmadas actualmente.</p>
+    </div>
+  }
+</div>
+
+<!-- Sección Pendientes de Aprobación -->
+<div>
+  <div class="section-divider mb-3">
+    <i class="bi bi-clock-history text-warning me-1"></i> Pendientes de Aprobación
+  </div>
+  <p class="small text-secondary mb-3 ps-1">
+    Esperando respuesta del administrador. Podés cancelar la solicitud si lo necesitás.
+  </p>
+
+  @for (reserva of reservasPendientes; track reserva.id) {
+    <div class="reserva-flat-row pendiente">
+      <div class="d-flex align-items-center gap-3">
+        <span class="reserva-icon-mini">
+          <i class="bi" [class]="reserva.icono + ' text-warning'"></i>
+        </span>
+        <div>
+          <p class="mb-1 h6 fw-bold text-white">{{ reserva.sala }}</p>
+          <p class="mb-0 small text-secondary">{{ reserva.detalle }}</p>
+        </div>
+      </div>
+      <button type="button" class="btn-action-cancel" (click)="cancelarReserva(reserva.id, 'pendiente')">
+        Cancelar
+      </button>
+    </div>
+  } @empty {
+    <div class="p-3 text-center border border-secondary rounded-3">
+      <p class="text-secondary mb-0 small">No tienes solicitudes de reserva pendientes.</p>
+    </div>
+  }
+</div>
