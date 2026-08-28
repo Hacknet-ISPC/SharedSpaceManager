@@ -1,0 +1,115 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero {
+    padding: 120px 0;
+    text-align: center;
+    background-color: var(--bg-dark);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.hero-title-highlight {
+    color: var(--primary);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* --- Secciones Generales --- */
+.section {
+    padding: 80px 0;
+    background-color: var(--bg-dark);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* --- Grilla y Tarjetas (Cards) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    height: 100%;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- Adaptabilidad Móvil --- */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 0;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}

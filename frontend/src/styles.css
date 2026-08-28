@@ -1,3 +1,4 @@
+/* --- Variables Globales --- */
 :root {
   --color-fondo: #0f172a;
   --color-primario: #3b82f6;
@@ -5,4 +6,92 @@
   --color-texto: #f8fafc;
   --color-texto-suave: #94a3b8;
   --color-borde: rgba(255, 255, 255, 0.07);
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --accent: #60a5fa;
+  --hover-and-active: rgba(59, 130, 246, 0.1);
+
+  /* Fondos */
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --bg-sidebar: #0f172a;
+
+  /* Texto */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-active: #3b82f6;
+
+  /* Bordes y sombras */
+  --border: rgba(255, 255, 255, 0.07);
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Estados */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  /* Animaciones */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Reseteo Base --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+/* --- Layout Utilitarios Globales --- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.d-block {
+  display: block;
+}
+
+/* --- Botones Globales --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-main);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--border);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  background-color: var(--hover-and-active);
+  border-color: var(--primary);
 }
