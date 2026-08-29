@@ -31,7 +31,7 @@ El sistema surge como respuesta a la creciente demanda de espacios de trabajo fl
 
 ---
 
-## **Instalacion y ejecucion**
+## **Instalacion y ejecucion (Maqueta)**
 
 Para ejecutar el proyecto correctamente se recomienda seguir estos pasos:
 
@@ -44,11 +44,81 @@ Para ejecutar el proyecto correctamente se recomienda seguir estos pasos:
 - Ingresar dentro de la carpeta "maqueta"
 - Abrir el archivo "index.html" para abrir el proyecto de manera local.
 
+## **Instalacion y ejecucion (Frontend)**
+### 1. Instalar Node.js
+
+Descargá e instalá Node.js desde el sitio oficial:
+
+[https://nodejs.org/](https://nodejs.org/)
+
+Se recomienda instalar la versión **LTS** (Long Term Support).
+
+Para verificar que Node.js y npm se instalaron correctamente, ejecutá en la terminal:
+
+```bash
+node -v
+npm -v
+```
+
+Esto debería mostrar las versiones instaladas de cada uno.
+
+### 2. Instalar Angular CLI
+
+Con Node.js y npm ya instalados, instalá Angular CLI de forma global ejecutando:
+
+```bash
+npm install -g @angular/cli
+```
+
+Para verificar que se instaló correctamente:
+
+```bash
+ng version
+```
+
+### 3. Clonar el repositorio
+
+Cloná este repositorio en tu máquina local:
+
+```bash
+git clone https://github.com/usuario/nombre-del-repositorio.git
+```
+
+Luego, ingresá a la carpeta del proyecto:
+
+```bash
+cd nombre-del-repositorio
+```
+
+### 4. Instalar las dependencias del proyecto
+
+Dentro de la carpeta del proyecto, instalá todas las dependencias necesarias:
+
+```bash
+npm install
+```
+
+## Ejecución del proyecto
+
+Para levantar el servidor de desarrollo, ejecutá:
+
+```bash
+ng serve
+```
+
+Por defecto, la aplicación quedará disponible en:
+
+```
+http://localhost:4200/
+```
+
+La app se recargará automáticamente cada vez que modifiques algún archivo del código fuente.
+
 ---
 
 ## Tecnologías utilizadas
 
-> HTLM5, CSS3 Y Bootstrap
+> HTLM5, CSS3, Bootstrap y Angular 22
 
 ---
 
