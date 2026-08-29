@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-home',
   imports: [RouterLink],
-  templateUrl: './home.html',
-  styleUrls: ['./home.css'] // <-- En formato array
+  selector: 'app-not-found',
+  styleUrl: './not-found.css',
+  templateUrl: './not-found.html',
 })
-export class Home { }
+export class NotFound {}

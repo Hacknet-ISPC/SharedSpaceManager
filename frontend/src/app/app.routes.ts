@@ -10,12 +10,16 @@ import { ConfirmacionReserva } from './pages/dashboard-user/confirmacion-reserva
 import { About } from './pages/about/about';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
+import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
+  
   { path: '', component: Home },
   { path: 'about', component: About },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
+  { path: 'about', component: About},
+
   {
     path: 'admin',
     component: AdminLayout,
@@ -31,4 +35,5 @@ export const routes: Routes = [
       { path: 'confirmacion-reserva', component: ConfirmacionReserva },
     ],
   },
+  { path: '**', component: NotFound }
 ];
