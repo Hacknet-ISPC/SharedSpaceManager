@@ -8,16 +8,18 @@ import { FormularioReserva } from './pages/dashboard-user/formulario-reserva/for
 import { MisReservas } from './pages/dashboard-user/mis-reservas/mis-reservas';
 import { ConfirmacionReserva } from './pages/dashboard-user/confirmacion-reserva/confirmacion-reserva';
 import { About } from './pages/about/about';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
 
 export const routes: Routes = [
   { path: '', component: Home },
-  { path: 'about', component: About},
+  { path: 'about', component: About },
+  { path: 'login', component: Login },
+  { path: 'register', component: Register },
   {
     path: 'admin',
     component: AdminLayout,
-    children: [
-      { path: '', component: DashboardAdmin }
-    ]
+    children: [{ path: '', component: DashboardAdmin }],
   },
   {
     path: 'user',
@@ -26,7 +28,7 @@ export const routes: Routes = [
       { path: '', component: DashboardInicio },
       { path: 'formulario-reserva', component: FormularioReserva },
       { path: 'mis-reservas', component: MisReservas },
-      { path: 'confirmacion-reserva', component: ConfirmacionReserva }
-    ]
-  }
+      { path: 'confirmacion-reserva', component: ConfirmacionReserva },
+    ],
+  },
 ];

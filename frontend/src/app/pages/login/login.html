@@ -1,0 +1,46 @@
+<div class="login-page">
+    <div class="card">
+        <p class="mark">Shared Space Manager</p>
+        <a routerLink="/" class="back-btn">Volver al Inicio</a>
+        <h1>Iniciar Sesión</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="field">
+                <label for="email">Correo</label>
+                <input id="email" type="email" formControlName="email" placeholder="tu@correo.com"
+                    autocomplete="email" />
+                @if (email?.invalid && email?.touched) {
+                <small class="error">
+                    @if (email?.errors?.['required']) {
+                    El correo es obligatorio.
+                    } @else if (email?.errors?.['email']) {
+                    Ingresá un correo válido.
+                    }
+                </small>
+                }
+            </div>
+
+            <div class="field">
+                <label for="password">Contraseña</label>
+                <input id="password" type="password" formControlName="password" placeholder="••••••••"
+                    autocomplete="current-password" />
+                @if (password?.invalid && password?.touched) {
+                <small class="error">
+                    @if (password?.errors?.['required']) {
+                    La contraseña es obligatoria.
+                    } @else if (password?.errors?.['minlength']) {
+                    Debe tener al menos 6 caracteres.
+                    }
+                </small>
+                }
+            </div>
+
+            <a class="forgot" routerLink="/forgot-password">¿Olvidaste tu contraseña?</a>
+
+            <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
+        </form>
+
+        <p class="signup">
+            ¿No tenes cuenta? <a routerLink="/register">Regístrate</a>
+        </p>
+    </div>
+</div>

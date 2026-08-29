@@ -1,40 +1,35 @@
- <nav class="navbar navbar-expand-md custom-navbar sticky-top">
-      <div class="container-fluid px-md-5">
-        <a class="navbar-brand custom-logo" href="/maqueta/index.html">
-          <img src="logo.png" alt="Logo" class="d-inline-block align-text-top" />
-          <span class="logo-text">SharedSpaceManager</span>
-        </a>
+<nav class="navbar navbar-expand-md custom-navbar sticky-top">
+  <div class="container-fluid px-md-5">
+    <a class="navbar-brand custom-logo" href="/maqueta/index.html">
+      <img src="logo.png" alt="Logo" class="d-inline-block align-text-top" />
+      <span class="logo-text">SharedSpaceManager</span>
+    </a>
 
-        <button 
-          class="navbar-toggler custom-toggler" 
-          type="button"
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav" 
-          aria-controls="navbarNav" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-md-center custom-nav-links">
-            <li class="nav-item">
-              <a class="nav-link" href="/maqueta/index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/maqueta/quienes-somos.html">Quiénes Somos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-admin" href="/maqueta/dashboard-admin.html">Admin</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/maqueta/dashboard-user.html">Usuario</a>
-            </li>
-            <li class="nav-item ms-md-2 mt-3 mt-md-0">
-              <a href="/maqueta/login.html" class="btn custom-login-btn w-100 w-md-auto">Iniciar Sesión</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-md-center custom-nav-links">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Inicio </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">Quiénes Somos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-admin" routerLink="/admin" routerLinkActive="active">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/user" routerLinkActive="active">Usuario</a>
+        </li>
+        <li class="nav-item ms-md-2 mt-3 mt-md-0">
+          <a routerLink="/admin" routerLinkActive="active" class="btn custom-login-btn w-100 w-md-auto">Iniciar
+            Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
