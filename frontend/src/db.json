@@ -1,0 +1,101 @@
+{
+  "roles": [
+    {
+      "id_rol": 1,
+      "nombre_rol": "Administrador",
+      "descripcion": "Gestiona el sistema completo"
+    },
+    {
+      "id_rol": 2,
+      "nombre_rol": "Cliente",
+      "descripcion": "Usuario que realiza reservas"
+    }
+  ],
+  "usuarios": [
+    {
+      "id_usuario": 1,
+      "id_rol": 1,
+      "nombre": "Juan ",
+      "apellido": "Pérez",
+      "email": "juan.perez@mail.com",
+      "contraseña": "admin123",
+      "fecha_registro": "2026-01-15"
+    },
+    {
+      "id_usuario": 2,
+      "id_rol": 2,
+      "nombre": "Ana",
+      "apellido": "Gómez",
+      "email": "ana.gomez@mail.com",
+      "contraseña": "cliente123",
+      "fecha_registro": "2026-02-20"
+    },
+    {
+      "id_usuario": 3,
+      "id_rol": 2,
+      "nombre": "Carlos",
+      "apellido": "Ruiz",
+      "email": "carlos.ruiz@mail.com",
+      "contraseña": "cliente456",
+      "fecha_registro": "2026-03-05"
+    }
+  ],
+  "espacios": [
+    {
+      "id_espacio": 1,
+      "nombre": "Sala de Reuniones A",
+      "capacidad": 10,
+      "ubicacion": "Piso 1",
+      "tipo": "Sala de reuniones",
+      "descripcion": "Sala equipada con proyector y pizarra"
+    },
+    {
+      "id_espacio": 2,
+      "nombre": "Auditorio Principal",
+      "capacidad": 100,
+      "ubicacion": "Planta baja",
+      "tipo": "Auditorio",
+      "descripcion": "Espacio para eventos y charlas"
+    },
+    {
+      "id_espacio": 3,
+      "nombre": "Sala de Estudio 3",
+      "capacidad": 4,
+      "ubicacion": "Piso 2",
+      "tipo": "Sala de estudio",
+      "descripcion": "Espacio silencioso para trabajo individual o grupal"
+    }
+  ],
+  "reservas": [
+    {
+      "id_reserva": 1,
+      "id_usuario": 2,
+      "id_espacio": 1,
+      "fecha": "2026-09-20",
+      "hora_inicio": "09:00",
+      "hora_fin": "10:30",
+      "cantidad_personas": 6,
+      "estado": "confirmada"
+    },
+    {
+      "id_reserva": 2,
+      "id_usuario": 3,
+      "id_espacio": 3,
+      "fecha": "2026-09-21",
+      "hora_inicio": "14:00",
+      "hora_fin": "16:00",
+      "cantidad_personas": 2,
+      "estado": "pendiente"
+    },
+    {
+      "id_reserva": 3,
+      "id_usuario": 2,
+      "id_espacio": 2,
+      "fecha": "2026-09-25",
+      "hora_inicio": "18:00",
+      "hora_fin": "20:00",
+      "cantidad_personas": 50,
+      "estado": "confirmada"
+    }
+  ]
+}
