@@ -97,5 +97,49 @@
       "cantidad_personas": 50,
       "estado": "confirmada"
     }
+  ],
+  "desarrolladores": [
+    {
+      "id_desarrollador": 1,
+      "nombre": "Fabricio Cocconi",
+      "rol": "Desarrollador",
+      "linkedin": "https://linkedin.com/in/fabricio-cocconi",
+      "foto": "assets/img/equipo/fabricio.jpg"
+    },
+    {
+      "id_desarrollador": 2,
+      "nombre": "Agustín Tanno",
+      "rol": "Desarrollador",
+      "linkedin": "https://linkedin.com/in/agustin-tanno",
+      "foto": "assets/img/equipo/agustin.jpg"
+    },
+    {
+      "id_desarrollador": 3,
+      "nombre": "Victor Oviedo",
+      "rol": "Desarrollador",
+      "linkedin": "https://linkedin.com/in/victor-oviedo",
+      "foto": "assets/img/equipo/victor.jpg"
+    },
+    {
+      "id_desarrollador": 4,
+      "nombre": "Maribel Riesgo",
+      "rol": "Desarrollador",
+      "linkedin": "https://linkedin.com/in/maribel-riesgo",
+      "foto": "assets/img/equipo/maribel.jpg"
+    },
+    {
+      "id_desarrollador": 5,
+      "nombre": "Marcos Reinoso",
+      "rol": "Desarrollador",
+      "linkedin": "https://linkedin.com/in/marcos-reinoso",
+      "foto": "assets/img/equipo/marcos.jpg"
+    },
+    {
+      "id_desarrollador": 6,
+      "nombre": "Gadiel Silva",
+      "rol": "Desarrollador",
+      "linkedin": "https://linkedin.com/in/gadiel-silva",
+      "foto": "assets/img/equipo/gadiel.jpg"
+    }
   ]
 }
