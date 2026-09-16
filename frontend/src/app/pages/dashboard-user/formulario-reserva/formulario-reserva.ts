@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
@@ -6,30 +6,30 @@ import { Router, RouterLink } from '@angular/router';
   selector: 'app-formulario-reserva',
   imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './formulario-reserva.html',
-  styleUrl: './formulario-reserva.css'
+  styleUrl: './formulario-reserva.css',
 })
 export class FormularioReserva {
-  reservaForm: FormGroup;
+  private fb = inject(FormBuilder);
+
+  reservaForm = this.fb.group({
+    espacio: ['', [Validators.required]],
+    cantidadPersonas: ['', [Validators.required]],
+    fecha: ['', [Validators.required]],
+    hora: ['', [Validators.required]],
+  });
 
   salas: string[] = [
     'Cabina de Zoom',
     'Sala Lounge',
     'Sala de Creatividad',
-    'Estación de Trabajo 08'
+    'Estación de Trabajo 08',
   ];
 
   capacidades: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   horariosDisponibles: string[] = ['15:40', '16:00', '17:00', '17:35'];
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.reservaForm = this.fb.group({
-      espacio: ['', [Validators.required]],
-      cantidadPersonas: ['', [Validators.required]],
-      fecha: ['', [Validators.required]],
-      hora: ['', [Validators.required]]
-    });
-  }
+  constructor(private router: Router) { }
 
   seleccionarHora(hora: string) {
     this.reservaForm.patchValue({ hora });

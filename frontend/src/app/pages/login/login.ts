@@ -16,15 +16,6 @@ export class Login {
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
-  // loginForm;
-
-  // constructor(private fb: FormBuilder) {
-  //   this.loginForm = this.fb.group({
-  //     email: ['', [Validators.required, Validators.email]],
-  //     password: ['', [Validators.required, Validators.minLength(6)]],
-  //   });
-  // }
-
   get email() {
     return this.loginForm.controls.email;
   }
