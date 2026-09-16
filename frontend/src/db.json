@@ -103,43 +103,43 @@
       "id_desarrollador": 1,
       "nombre": "Fabricio Cocconi",
       "rol": "Desarrollador",
-      "linkedin": "https://linkedin.com/in/fabricio-cocconi",
-      "foto": "assets/img/equipo/fabricio.jpg"
+      "linkedin": "https://www.linkedin.com/in/fabricio-andr%C3%A9s-cocconi-huenz-9592ab356/",
+      "foto": "Fabricio.jpg"
     },
     {
       "id_desarrollador": 2,
       "nombre": "Agustín Tanno",
       "rol": "Desarrollador",
-      "linkedin": "https://linkedin.com/in/agustin-tanno",
-      "foto": "assets/img/equipo/agustin.jpg"
+      "linkedin": "https://www.linkedin.com/in/agustin-tanno-6513542a9/",
+      "foto": "Agustin.jpg"
     },
     {
       "id_desarrollador": 3,
       "nombre": "Victor Oviedo",
       "rol": "Desarrollador",
-      "linkedin": "https://linkedin.com/in/victor-oviedo",
-      "foto": "assets/img/equipo/victor.jpg"
+      "linkedin": "https://www.linkedin.com/in/victor-a-oviedo/",
+      "foto": "Victor.jpg"
     },
     {
       "id_desarrollador": 4,
       "nombre": "Maribel Riesgo",
       "rol": "Desarrollador",
-      "linkedin": "https://linkedin.com/in/maribel-riesgo",
-      "foto": "assets/img/equipo/maribel.jpg"
+      "linkedin": "https://www.linkedin.com/in/maribel-riesgo/",
+      "foto": "Maribel.jpg"
     },
     {
       "id_desarrollador": 5,
       "nombre": "Marcos Reinoso",
       "rol": "Desarrollador",
-      "linkedin": "https://linkedin.com/in/marcos-reinoso",
-      "foto": "assets/img/equipo/marcos.jpg"
+      "linkedin": "https://www.linkedin.com/in/marcos-david-reinoso-cavoli-67a954375/",
+      "foto": "Marcos.jpg"
     },
     {
       "id_desarrollador": 6,
       "nombre": "Gadiel Silva",
       "rol": "Desarrollador",
-      "linkedin": "https://linkedin.com/in/gadiel-silva",
-      "foto": "assets/img/equipo/gadiel.jpg"
+      "linkedin": "https://www.linkedin.com/in/gadiel-silva-monteabaro-4353a9273/",
+      "foto": "Gadiel.jpg"
     }
   ]
 }
