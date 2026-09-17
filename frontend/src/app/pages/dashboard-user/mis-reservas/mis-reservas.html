@@ -42,7 +42,7 @@
     <i class="bi bi-check-circle-fill text-success me-1"></i> Próximas Confirmadas
   </div>
 
-  @for (reserva of confirmadas(); track reserva.id_reserva) {
+  @for (reserva of confirmadas(); track reserva.id) {
   <div class="reserva-flat-row">
     <div class="d-flex align-items-center gap-3">
       <span class="reserva-icon-mini">
@@ -56,7 +56,7 @@
         </p>
       </div>
     </div>
-    <button type="button" class="btn-action-cancel">
+    <button type="button" class="btn-action-cancel" (click)="eliminarReserva(reserva.id)">
       Cancelar
     </button>
   </div>
@@ -76,7 +76,7 @@
     Esperando respuesta del administrador. Podés cancelar la solicitud si lo necesitás.
   </p>
 
-  @for (reserva of pendientes(); track reserva.id_reserva) {
+  @for (reserva of pendientes(); track reserva.id) {
   <div class="reserva-flat-row pendiente">
     <div class="d-flex align-items-center gap-3">
       <span class="reserva-icon-mini">
@@ -90,7 +90,7 @@
         </p>
       </div>
     </div>
-    <button type="button" class="btn-action-cancel">
+    <button type="button" class="btn-action-cancel" (click)="eliminarReserva(reserva.id)">
       Cancelar
     </button>
   </div>

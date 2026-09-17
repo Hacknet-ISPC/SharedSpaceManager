@@ -2,7 +2,6 @@
   "roles": [
     {
       "id_rol": 1,
-
       "nombre_rol": "Administrador",
       "descripcion": "Gestiona el sistema completo",
       "id": "4B0n4yd-VxM"

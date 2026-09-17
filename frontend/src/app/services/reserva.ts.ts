@@ -14,4 +14,9 @@ export class ReservaService {
   obtenerReservas(): Observable<Reserva[]> {
     return this.http.get<Reserva[]>(this.apiUrl);
   }
+
+  eliminarReserva(id: string): Observable<Reserva[]> {
+    return this.http.delete<Reserva[]>(`${this.apiUrl}/${id}`);
+  }
+
 }
