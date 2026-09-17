@@ -7,6 +7,8 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { UsuarioService } from '../../services/usuario';
+import { Usuario } from '../../models/usuario';
 
 // Validador custom: compara password y confirmPassword
 function passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
@@ -27,10 +29,12 @@ function passwordMatchValidator(control: AbstractControl): ValidationErrors | nu
 })
 export class Register {
   private fb = inject(FormBuilder);
+  private usuarioService = inject(UsuarioService);
 
   registerForm = this.fb.group(
     {
       name: ['', [Validators.required, Validators.minLength(2)]],
+      lastname: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]],
@@ -40,6 +44,10 @@ export class Register {
 
   get name() {
     return this.registerForm.controls.name;
+  }
+
+  get lastname() {
+    return this.registerForm.controls.lastname;
   }
 
   get email() {
@@ -60,6 +68,25 @@ export class Register {
       return;
     }
 
-    console.log('Register form value:', this.registerForm.value);
+    const nuevoUsuario: Omit<Usuario, 'id' | 'id_usuario'> = {
+      nombre: this.registerForm.value.name!,
+      apellido: this.registerForm.value.lastname!,
+      email: this.registerForm.value.email!,
+      contraseña: this.registerForm.value.password!,
+      id_rol: 2,
+      fecha_registro: new Date().toISOString().split('T')[0],
+    };
+
+    this.usuarioService.registrar(nuevoUsuario).subscribe({
+      next: (usuarioCreado) => {
+        console.log('Usuario registrado:', usuarioCreado);
+      },
+      error: (err) => {
+        console.error('Error al registrar usuario:', err);
+      }
+    });
+
   }
+
+
 }

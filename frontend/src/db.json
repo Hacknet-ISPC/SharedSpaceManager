@@ -3,12 +3,14 @@
     {
       "id_rol": 1,
       "nombre_rol": "Administrador",
-      "descripcion": "Gestiona el sistema completo"
+      "descripcion": "Gestiona el sistema completo",
+      "id": "4B0n4yd-VxM"
     },
     {
       "id_rol": 2,
       "nombre_rol": "Cliente",
-      "descripcion": "Usuario que realiza reservas"
+      "descripcion": "Usuario que realiza reservas",
+      "id": "nWGR-b00ZsA"
     }
   ],
   "usuarios": [
@@ -19,7 +21,8 @@
       "apellido": "Pérez",
       "email": "juan.perez@mail.com",
       "contraseña": "admin123",
-      "fecha_registro": "2026-01-15"
+      "fecha_registro": "2026-01-15",
+      "id": "iTd-33N0Nx0"
     },
     {
       "id_usuario": 2,
@@ -28,7 +31,8 @@
       "apellido": "Gómez",
       "email": "ana.gomez@mail.com",
       "contraseña": "cliente123",
-      "fecha_registro": "2026-02-20"
+      "fecha_registro": "2026-02-20",
+      "id": "cOeoEYU1lmQ"
     },
     {
       "id_usuario": 3,
@@ -37,7 +41,17 @@
       "apellido": "Ruiz",
       "email": "carlos.ruiz@mail.com",
       "contraseña": "cliente456",
-      "fecha_registro": "2026-03-05"
+      "fecha_registro": "2026-03-05",
+      "id": "fmM2vjD3mcU"
+    },
+    {
+      "nombre": "vic",
+      "apellido": "ovi",
+      "email": "vic@ovi",
+      "contraseña": "123456",
+      "id_rol": 2,
+      "fecha_registro": "2026-09-17",
+      "id": "fVcG2NQEV40"
     }
   ],
   "espacios": [
@@ -47,7 +61,8 @@
       "capacidad": 10,
       "ubicacion": "Piso 1",
       "tipo": "Sala de reuniones",
-      "descripcion": "Sala equipada con proyector y pizarra"
+      "descripcion": "Sala equipada con proyector y pizarra",
+      "id": "EzofpCGWbC0"
     },
     {
       "id_espacio": 2,
@@ -55,7 +70,8 @@
       "capacidad": 100,
       "ubicacion": "Planta baja",
       "tipo": "Auditorio",
-      "descripcion": "Espacio para eventos y charlas"
+      "descripcion": "Espacio para eventos y charlas",
+      "id": "TmcgkPxYcM8"
     },
     {
       "id_espacio": 3,
@@ -63,7 +79,8 @@
       "capacidad": 4,
       "ubicacion": "Piso 2",
       "tipo": "Sala de estudio",
-      "descripcion": "Espacio silencioso para trabajo individual o grupal"
+      "descripcion": "Espacio silencioso para trabajo individual o grupal",
+      "id": "ah9L_SMGfbw"
     }
   ],
   "reservas": [
@@ -75,7 +92,8 @@
       "hora_inicio": "09:00",
       "hora_fin": "10:30",
       "cantidad_personas": 6,
-      "estado": "confirmada"
+      "estado": "confirmada",
+      "id": "ChI1qZZkEuM"
     },
     {
       "id_reserva": 2,
@@ -85,7 +103,8 @@
       "hora_inicio": "14:00",
       "hora_fin": "16:00",
       "cantidad_personas": 2,
-      "estado": "pendiente"
+      "estado": "pendiente",
+      "id": "4nRlly-TXzk"
     },
     {
       "id_reserva": 3,
@@ -95,7 +114,8 @@
       "hora_inicio": "18:00",
       "hora_fin": "20:00",
       "cantidad_personas": 50,
-      "estado": "confirmada"
+      "estado": "confirmada",
+      "id": "W394mHgcJnI"
     }
   ],
   "desarrolladores": [
@@ -104,42 +124,49 @@
       "nombre": "Fabricio Cocconi",
       "rol": "Desarrollador",
       "linkedin": "https://www.linkedin.com/in/fabricio-andr%C3%A9s-cocconi-huenz-9592ab356/",
-      "foto": "Fabricio.jpg"
+      "foto": "Fabricio.jpg",
+      "id": "m2a-iqB6Rys"
     },
     {
       "id_desarrollador": 2,
       "nombre": "Agustín Tanno",
       "rol": "Desarrollador",
       "linkedin": "https://www.linkedin.com/in/agustin-tanno-6513542a9/",
-      "foto": "Agustin.jpg"
+      "foto": "Agustin.jpg",
+      "id": "QEVJKbXKyI0"
     },
     {
       "id_desarrollador": 3,
       "nombre": "Victor Oviedo",
       "rol": "Desarrollador",
       "linkedin": "https://www.linkedin.com/in/victor-a-oviedo/",
-      "foto": "Victor.jpg"
+      "foto": "Victor.jpg",
+      "id": "R1Eiu2e3POM"
     },
     {
       "id_desarrollador": 4,
       "nombre": "Maribel Riesgo",
       "rol": "Desarrollador",
       "linkedin": "https://www.linkedin.com/in/maribel-riesgo/",
-      "foto": "Maribel.jpg"
+      "foto": "Maribel.jpg",
+      "id": "9VQArvhRciE"
     },
     {
       "id_desarrollador": 5,
       "nombre": "Marcos Reinoso",
       "rol": "Desarrollador",
       "linkedin": "https://www.linkedin.com/in/marcos-david-reinoso-cavoli-67a954375/",
-      "foto": "Marcos.jpg"
+      "foto": "Marcos.jpg",
+      "id": "m6v9n-xbby0"
     },
     {
       "id_desarrollador": 6,
       "nombre": "Gadiel Silva",
       "rol": "Desarrollador",
       "linkedin": "https://www.linkedin.com/in/gadiel-silva-monteabaro-4353a9273/",
-      "foto": "Gadiel.jpg"
+      "foto": "Gadiel.jpg",
+      "id": "e29ACVUI1p8"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

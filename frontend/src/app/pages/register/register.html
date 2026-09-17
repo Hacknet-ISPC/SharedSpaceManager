@@ -18,6 +18,19 @@
                 </small>
                 }
             </div>
+            <div class="field">
+                <label for="lastname">Apellido</label>
+                <input id="lastname" type="text" formControlName="lastname" placeholder="Tu lastname" autocomplete="lastname" />
+                @if (lastname.invalid && lastname.touched) {
+                <small class="error">
+                    @if (lastname.errors?.['required']) {
+                    El apellido es obligatorio.
+                    } @else if (lastname.errors?.['minlength']) {
+                    Debe tener al menos 2 caracteres.
+                    }
+                </small>
+                }
+            </div>
 
             <div class="field">
                 <label for="email">Correo</label>
