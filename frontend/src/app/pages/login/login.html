@@ -3,6 +3,13 @@
         <p class="mark">Shared Space Manager</p>
         <a routerLink="/" class="back-btn">Volver al Inicio</a>
         <h1>Iniciar Sesión</h1>
+
+        <!-- Mensaje de error cuando las credenciales no son válidas -->
+        @if (errorMessage) {
+        <small class="error text-center d-block mb-3">
+            {{ errorMessage }}
+        </small>
+        }
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="field">
                 <label for="email">Correo</label>

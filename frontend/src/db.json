@@ -49,9 +49,27 @@
       "apellido": "ovi",
       "email": "vic@ovi",
       "contraseña": "123456",
-      "id_rol": 2,
+      "id_rol": 1,
       "fecha_registro": "2026-09-17",
       "id": "fVcG2NQEV40"
+    },
+    {
+      "nombre": "Fabricio",
+      "apellido": "Cocconi",
+      "email": "fabricio@gmail.com",
+      "contraseña": "Pruebaf",
+      "id_rol": 2,
+      "fecha_registro": "2026-09-17",
+      "id": "vo_XEE13OKI"
+    },
+    {
+      "nombre": "Gadiel",
+      "apellido": "Silva",
+      "email": "gadiel@gmail.com",
+      "contraseña": "gadiel123",
+      "id_rol": 2,
+      "fecha_registro": "2026-09-17",
+      "id": "hMN2FZqPDq8"
     }
   ],
   "espacios": [
