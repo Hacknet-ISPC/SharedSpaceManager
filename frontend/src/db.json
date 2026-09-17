@@ -2,6 +2,7 @@
   "roles": [
     {
       "id_rol": 1,
+
       "nombre_rol": "Administrador",
       "descripcion": "Gestiona el sistema completo",
       "id": "4B0n4yd-VxM"
@@ -109,7 +110,7 @@
       "fecha": "2026-09-20",
       "hora_inicio": "09:00",
       "hora_fin": "10:30",
-      "cantidad_personas": 6,
+      "cantidad_personas": 15,
       "estado": "confirmada",
       "id": "ChI1qZZkEuM"
     },
@@ -131,7 +132,7 @@
       "fecha": "2026-09-25",
       "hora_inicio": "18:00",
       "hora_fin": "20:00",
-      "cantidad_personas": 50,
+      "cantidad_personas": 11,
       "estado": "confirmada",
       "id": "W394mHgcJnI"
     }
