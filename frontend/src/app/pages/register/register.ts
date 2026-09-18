@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -6,7 +6,7 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UsuarioService } from '../../services/usuario';
 import { Usuario } from '../../models/usuario';
 
@@ -30,6 +30,7 @@ function passwordMatchValidator(control: AbstractControl): ValidationErrors | nu
 export class Register {
   private fb = inject(FormBuilder);
   private usuarioService = inject(UsuarioService);
+  private router = inject(Router);
 
   registerForm = this.fb.group(
     {
@@ -79,10 +80,13 @@ export class Register {
 
     this.usuarioService.registrar(nuevoUsuario).subscribe({
       next: (usuarioCreado) => {
+        alert('Usuario registrado correctamente');
+        this.router.navigate(['/login'])
         console.log('Usuario registrado:', usuarioCreado);
       },
       error: (err) => {
         console.error('Error al registrar usuario:', err);
+        alert('Ocurrio un error al registrar el usuario')
       }
     });
 
