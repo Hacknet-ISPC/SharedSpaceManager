@@ -6,72 +6,92 @@
       <!-- Espacio seleccionado -->
       <div class="mb-3">
         <label for="espacio" class="form-label">Espacio seleccionado</label>
-        <select id="espacio" formControlName="espacio" class="form-select" [class.is-invalid]="reservaForm.get('espacio')?.touched && reservaForm.get('espacio')?.invalid">
-          <option value="" disabled selected>Seleccionar sala a solicitar</option>
-          @for (sala of salas; track sala) {
-            <option [value]="sala">{{ sala }}</option>
+        <select id="espacio" formControlName="espacio" class="form-select"
+          [class.is-invalid]="reservaForm.get('espacio')?.touched && reservaForm.get('espacio')?.invalid">
+          <option value="" disabled>Seleccionar sala a solicitar</option>
+          @for (e of espacios(); track e.id) {
+          <option [value]="e.id_espacio">{{ e.nombre }} (hasta {{ e.capacidad }} personas)</option>
           }
         </select>
         @if (reservaForm.get('espacio')?.touched && reservaForm.get('espacio')?.hasError('required')) {
-          <div class="text-danger small mt-1">
-            <i class="bi bi-exclamation-circle me-1"></i>Debes seleccionar un espacio.
-          </div>
+        <div class="text-danger small mt-1">
+          <i class="bi bi-exclamation-circle me-1"></i>Debes seleccionar un espacio.
+        </div>
         }
       </div>
 
-      <!-- Selección de cantidad de personas -->
+      <!-- Cantidad de personas -->
       <div class="mb-3">
         <label for="cantidadPersonas" class="form-label">Cantidad de Personas</label>
-        <select id="cantidadPersonas" formControlName="cantidadPersonas" class="form-select" [class.is-invalid]="reservaForm.get('cantidadPersonas')?.touched && reservaForm.get('cantidadPersonas')?.invalid">
-          <option value="" disabled selected>Seleccionar cantidad de personas</option>
-          @for (cant of capacidades; track cant) {
-            <option [value]="cant">{{ cant }}</option>
-          }
-        </select>
-        @if (reservaForm.get('cantidadPersonas')?.touched && reservaForm.get('cantidadPersonas')?.hasError('required')) {
-          <div class="text-danger small mt-1">
-            <i class="bi bi-exclamation-circle me-1"></i>Indica la cantidad de personas.
-          </div>
+        <input id="cantidadPersonas" type="number" formControlName="cantidadPersonas" class="form-control" min="1"
+          [max]="espacioSeleccionado()?.capacidad ?? null" placeholder="Cantidad de personas"
+          [class.is-invalid]="reservaForm.get('cantidadPersonas')?.touched && reservaForm.get('cantidadPersonas')?.invalid" />
+        @if (reservaForm.get('cantidadPersonas')?.touched && reservaForm.get('cantidadPersonas')?.hasError('required'))
+        {
+        <div class="text-danger small mt-1">
+          <i class="bi bi-exclamation-circle me-1"></i>Indica la cantidad de personas.
+        </div>
         }
       </div>
 
       <!-- Fecha -->
       <div class="mb-3">
         <label for="fecha" class="form-label">Fecha</label>
-        <input id="fecha" type="date" formControlName="fecha" class="form-control" [class.is-invalid]="reservaForm.get('fecha')?.touched && reservaForm.get('fecha')?.invalid" />
+        <input id="fecha" type="date" formControlName="fecha" class="form-control" [min]="hoy"
+          [class.is-invalid]="reservaForm.get('fecha')?.touched && reservaForm.get('fecha')?.invalid" />
         @if (reservaForm.get('fecha')?.touched && reservaForm.get('fecha')?.hasError('required')) {
-          <div class="text-danger small mt-1">
-            <i class="bi bi-exclamation-circle me-1"></i>La fecha es obligatoria.
-          </div>
+        <div class="text-danger small mt-1">
+          <i class="bi bi-exclamation-circle me-1"></i>La fecha es obligatoria.
+        </div>
         }
       </div>
 
-      <!-- Hora -->
-      <div class="mb-3">
-        <label class="form-label d-block">Horarios disponibles</label>
-        <div class="time-slots-container d-flex flex-wrap gap-2 mb-2">
-          @for (hora of horariosDisponibles; track hora) {
-            <button
-              type="button"
-              class="btn btn-time"
-              [class.active]="reservaForm.get('hora')?.value === hora"
-              (click)="seleccionarHora(hora)"
-            >
-              {{ hora }}
-            </button>
+      <!-- Horario -->
+      <div class="row mb-3">
+        <div class="col-6">
+          <label for="horaInicio" class="form-label">Hora de inicio</label>
+          <input id="horaInicio" type="time" formControlName="horaInicio" class="form-control"
+            [class.is-invalid]="reservaForm.get('horaInicio')?.touched && reservaForm.get('horaInicio')?.invalid" />
+          @if (reservaForm.get('horaInicio')?.touched && reservaForm.get('horaInicio')?.hasError('required')) {
+          <div class="text-danger small mt-1">
+            <i class="bi bi-exclamation-circle me-1"></i>Indica la hora de inicio.
+          </div>
           }
         </div>
-        @if (reservaForm.get('hora')?.touched && reservaForm.get('hora')?.hasError('required')) {
+
+        <div class="col-6">
+          <label for="horaFin" class="form-label">Hora de fin</label>
+          <input id="horaFin" type="time" formControlName="horaFin" class="form-control"
+            [class.is-invalid]="reservaForm.get('horaFin')?.touched && reservaForm.get('horaFin')?.invalid" />
+          @if (reservaForm.get('horaFin')?.touched && reservaForm.get('horaFin')?.hasError('required')) {
           <div class="text-danger small mt-1">
-            <i class="bi bi-exclamation-circle me-1"></i>Debes seleccionar un horario.
+            <i class="bi bi-exclamation-circle me-1"></i>Indica la hora de fin.
           </div>
-        }
+          }
+        </div>
       </div>
+
+      @if (reservaForm.hasError('rangoInvalido') && reservaForm.get('horaFin')?.touched) {
+      <div class="text-danger small mb-3">
+        <i class="bi bi-exclamation-circle me-1"></i>La hora de fin debe ser posterior a la de inicio.
+      </div>
+      }
+
+      <!-- Error general (solapamiento, fallo al guardar, capacidad) -->
+      @if (error()) {
+      <div class="alert alert-danger py-2 small" role="alert">
+        <i class="bi bi-exclamation-triangle me-1"></i>{{ error() }}
+      </div>
+      }
 
       <!-- Botones de Acción -->
       <div class="d-grid mt-4">
-        <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success" [disabled]="enviando()">
+          @if (enviando()) {
+          <span class="spinner-border spinner-border-sm me-2"></span>Guardando...
+          } @else {
           Reservar
+          }
         </button>
         <a routerLink="/user" class="btn btn-danger mt-2">
           Cancelar
