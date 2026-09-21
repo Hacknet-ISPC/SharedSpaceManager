@@ -100,7 +100,7 @@ npm install
 
 ## Ejecución del proyecto
 
-Para levantar el servidor de desarrollo, ejecutá:
+Para levantar el servidor de desarrollo de Angular, ejecutá:
 
 ```bash
 ng serve
@@ -108,11 +108,70 @@ ng serve
 
 Por defecto, la aplicación quedará disponible en:
 
-```
+```text
 http://localhost:4200/
 ```
 
 La app se recargará automáticamente cada vez que modifiques algún archivo del código fuente.
+
+### Base de datos con JSON Server
+
+El proyecto utiliza **JSON Server** para simular una API REST y gestionar los datos utilizados por la aplicación.
+
+Los datos se almacenan en el archivo:
+
+```text
+db.json
+```
+
+Para iniciar el servidor de JSON Server, ejecutá en **otra terminal**:
+
+```bash
+npm run server
+```
+
+Por defecto, la API estará disponible en:
+
+```text
+http://localhost:3000/
+```
+
+A partir de esta URL se pueden acceder a los diferentes recursos definidos en `db.json`. Por ejemplo:
+
+```text
+http://localhost:3000/roles
+http://localhost:3000/usuarios
+http://localhost:3000/espacios
+http://localhost:3000/reservas
+http://localhost:3000/desarrolladores
+```
+
+> **Importante:** Para utilizar la aplicación correctamente, es necesario mantener ejecutados ambos servidores:
+>
+> * **Angular:** `ng serve` → `http://localhost:4200/`
+> * **JSON Server:** `npm run server` → `http://localhost:3000/`
+
+### Resumen
+
+Abrí **dos terminales** dentro del proyecto:
+
+**Terminal 1 — Angular:**
+
+```bash
+ng serve
+```
+
+**Terminal 2 — JSON Server:**
+
+```bash
+npm run server
+```
+
+Luego ingresá a:
+
+```text
+http://localhost:4200/
+```
 
 ---
 
