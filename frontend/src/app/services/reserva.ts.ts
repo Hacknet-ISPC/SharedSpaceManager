@@ -15,7 +15,7 @@ export class ReservaService {
     return this.http.get<Reserva[]>(this.apiUrl);
   }
 
-  agregarReserva(reserva: Omit<Reserva, 'id'>): Observable<Reserva> {
+  agregarReserva(reserva: Reserva): Observable<Reserva> {
     return this.http.post<Reserva>(this.apiUrl, reserva);
   }
 

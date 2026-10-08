@@ -19,7 +19,7 @@ interface EspacioDisponible {
   selector: 'app-dashboard-inicio',
   imports: [RouterLink],
   templateUrl: './dashboard-inicio.html',
-  styleUrl: './dashboard-inicio.css'
+  styleUrl: './dashboard-inicio.css',
 })
 export class DashboardInicio {
   usuarioNombre: string = 'Usuario';
@@ -31,27 +31,27 @@ export class DashboardInicio {
       sala: 'Sala de Creatividad',
       horario: 'Jueves, 14 de Mayo • 15:00 - 17:00',
       tiempoRestante: 'En 2 días',
-      acento: false
+      acento: false,
     },
     {
       id: 2,
       sala: 'Estación de Trabajo 08',
       horario: 'Viernes, 15 de Mayo • 09:00 - 18:00',
       tiempoRestante: 'En 3 días',
-      acento: true
-    }
+      acento: true,
+    },
   ];
 
   espaciosDisponibles: EspacioDisponible[] = [
     {
       id: 1,
       nombre: 'Cabina de Zoom',
-      disponibilidad: '● Disponible ahora'
+      disponibilidad: '● Disponible ahora',
     },
     {
       id: 2,
       nombre: 'Sala Lounge',
-      disponibilidad: '● 4 asientos libres'
-    }
+      disponibilidad: '● 4 asientos libres',
+    },
   ];
 }

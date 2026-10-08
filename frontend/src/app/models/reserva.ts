@@ -1,5 +1,4 @@
 export interface Reserva {
-  id_reserva: number;
   id_usuario: number;
   id_espacio: number;
   fecha: string;
@@ -7,5 +6,4 @@ export interface Reserva {
   hora_fin: string;
   cantidad_personas: number;
   estado: string;
-  id: string;
 }
