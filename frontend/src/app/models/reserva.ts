@@ -1,4 +1,5 @@
 export interface Reserva {
+  id: string;
   id_usuario: number;
   id_espacio: number;
   fecha: string;

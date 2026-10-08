@@ -73,7 +73,7 @@ export class FormularioReserva {
 
     if (!confirm('¿Estás seguro de que deseas confirmar esta reserva?')) return;
 
-    const reserva: Reserva = {
+    const reserva: Omit<Reserva, 'id'> = {
       id_usuario: this.idUsuario,
       id_espacio: Number(espacio),
       fecha,

@@ -139,21 +139,11 @@
       "id_usuario": 1,
       "id_espacio": 1,
       "fecha": "2026-10-31",
-      "hora_inicio": "22:30",
-      "hora_fin": "23:30",
-      "cantidad_personas": 7,
+      "hora_inicio": "21:20",
+      "hora_fin": "23:25",
+      "cantidad_personas": 10,
       "estado": "pendiente",
-      "id": "DOh_Tscwz0I"
-    },
-    {
-      "id_usuario": 1,
-      "id_espacio": 1,
-      "fecha": "2026-10-30",
-      "hora_inicio": "21:42",
-      "hora_fin": "23:39",
-      "cantidad_personas": 6,
-      "estado": "pendiente",
-      "id": "coYZjcY3AJM"
+      "id": "szbQMcfvlKM"
     }
   ],
   "desarrolladores": [
