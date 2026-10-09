@@ -1,102 +1,163 @@
-/* Contenedor de la tarjeta del formulario */
+/* Tarjeta del formulario */
 .card {
-  background-color: var(--bg-card) !important;
+  background-color: #ffffff !important;
   border: 1px solid var(--border) !important;
-  border-radius: 16px !important;
+  border-radius: 14px !important;
   color: var(--text-main);
-  transition: var(--transition);
+  box-shadow: 0 4px 24px rgba(11, 9, 10, 0.06);
+  padding: 2rem !important;
 }
 
-.card:hover {
-  border-color: rgba(59, 130, 246, 0.4) !important;
+.footer-logo img {
+  height: 30px;
+  width: 30px;
+  border-radius: 8px;
+  text-align: center;
 }
 
-/* Título del formulario */
+/* Título con una barrita de acento */
 .card h1 {
   font-weight: 700;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
+  color: var(--color-primario);
+  letter-spacing: -0.02em;
+  position: relative;
+  padding-bottom: 14px;
 }
 
-/* Etiquetas (Labels) */
+.card h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--color-acento);
+  transform: translateX(-50%);
+}
+
+/* Etiquetas */
 .form-label {
-  color: var(--text-muted);
-  font-weight: 500;
-  font-size: 0.9rem;
-  margin-bottom: 8px;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
 }
 
-/* Estilos para Inputs y Selects */
+/* Inputs y selects */
 .form-control,
 .form-select {
-  background-color: var(--bg-dark) !important;
-  border: 1px solid var(--border) !important;
+  background-color: #ffffff !important;
+  border: 1px solid rgba(11, 9, 10, 0.15) !important;
   color: var(--text-main) !important;
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 10px;
+  padding: 11px 14px;
   font-size: 0.95rem;
-  transition: var(--transition);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* Efecto Focus en Inputs y Selects */
+.form-control:hover,
+.form-select:hover {
+  border-color: rgba(11, 9, 10, 0.3) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* Focus */
 .form-control:focus,
 .form-select:focus {
-  background-color: var(--bg-dark) !important;
+  background-color: #ffffff !important;
   border-color: var(--primary) !important;
-  box-shadow: 0 0 0 4px var(--hover-and-active) !important;
+  box-shadow: 0 0 0 4px rgba(232, 93, 4, 0.12) !important;
   outline: none;
 }
 
-/* Icono del Select y del Input Date en modo oscuro */
+/* Flecha del select */
 .form-select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%235f5658' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
 }
 
+/* Ícono del input date/time */
 ::-webkit-calendar-picker-indicator {
-  filter: invert(0.7);
+  filter: none;
+  opacity: 0.55;
   cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-/* Contenedor de botones de hora */
-.time-slots-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 8px;
+::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
 }
 
-/* Botones de selección de Hora */
-.btn-time {
-  background-color: transparent !important;
-  border: 1.5px solid var(--border) !important;
-  color: var(--text-muted) !important;
-  padding: 10px !important;
-  border-radius: 8px !important;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: var(--transition);
-}
-
-.btn-time:hover,
-.btn-time.active {
-  background-color: var(--hover-and-active) !important;
-  border-color: var(--primary) !important;
-  color: var(--primary) !important;
-}
-
-/* Botón de Confirmación (Éxito) */
+/* Botón principal */
 .btn-success {
-  background-color: var(--success) !important;
-  border: none !important;
-  color: var(--bg-dark) !important;
-  font-weight: 700 !important;
-  padding: 14px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3) !important;
-  transition: var(--transition);
+  background-color: var(--primary) !important;
+  border: 1px solid var(--primary) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 12px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(232, 93, 4, 0.25) !important;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .btn-success:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4) !important;
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  box-shadow: 0 6px 16px rgba(220, 47, 2, 0.3) !important;
+}
+
+.btn-success:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+/* Botón cancelar (usá class="btn btn-cancel" en el HTML) */
+.btn-cancel {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 10px;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-cancel:hover {
+  color: var(--text-active);
+}
+
+/* Errores */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--danger) !important;
+  background-image: none !important;
+  padding-right: 14px;
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(220, 47, 2, 0.12) !important;
+}
+
+.text-danger {
+  color: var(--danger) !important;
+}
+
+.alert-danger {
+  background-color: rgba(220, 47, 2, 0.07);
+  border: 1px solid rgba(220, 47, 2, 0.25);
+  color: var(--danger);
+  border-radius: 10px;
 }

@@ -1,6 +1,9 @@
 <div class="d-flex justify-content-center align-items-center py-4">
   <div class="card shadow p-4" style="width: 100%; max-width: 500px;">
-    <h1 class="text-center mb-4 h3 fw-bold text-white">Reserva de Espacio</h1>
+    <div class="d-flex align-items-center gap-2 footer-logo mb-3">
+      <img src="logo.png" alt="Logo" />
+    </div>
+    <h1 class="text-center mb-4 h3 fw-bold">Reserva tu cancha</h1>
 
     <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
       <!-- Espacio seleccionado -->
@@ -93,7 +96,7 @@
           Reservar
           }
         </button>
-        <a routerLink="/user" class="btn btn-danger mt-2">
+        <a routerLink="/user" class="btn btn-cancel mt-2">
           Cancelar
         </a>
       </div>

@@ -1,4 +1,4 @@
-/* Panel de Usuario - Exacto a la maqueta */
+/* Panel de Usuario */
 
 /* Layout general */
 .dashboard-container {
@@ -8,9 +8,10 @@
 
 /* Tarjetas (Cards) */
 .card {
-  background: var(--bg-dark) !important;
-  border: 1px solid var(--border, rgba(255, 255, 255, 0.05)) !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--border) !important;
   border-radius: 12px !important;
+  box-shadow: none;
 }
 
 /* Sidebar */
@@ -18,7 +19,7 @@
   width: 260px;
   background-color: var(--bg-sidebar);
   border-right: 1px solid var(--border);
-  padding: 40px 24px;
+  padding: 32px 20px;
   position: fixed;
   height: 100vh;
   z-index: 100;
@@ -28,29 +29,38 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 50px;
+  gap: 12px;
+  margin-bottom: 40px;
 }
 
 .sidebar .logo img {
-  height: 50px;
-  width: 50px;
+  height: 44px;
+  width: 44px;
+  border-radius: 8px;
 }
 
 .sidebar .logo-name {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--text-main);
 }
 
 /* Cerrar sesión */
 .sidebar-nav .nav-item-logout {
-  margin-top: 50px;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
 
 .sidebar-nav .nav-item-logout a {
+  color: var(--danger) !important;
+}
+
+.sidebar-nav .nav-item-logout a:hover {
+  background-color: rgba(220, 47, 2, 0.08) !important;
   color: var(--danger) !important;
 }
 
@@ -59,7 +69,7 @@
   flex: 1;
   margin-left: 260px;
   padding: 40px;
-  background: #0b1120;
+  background-color: #fffaf5;
   min-height: 100vh;
 }
 
@@ -68,32 +78,42 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 16px !important;
-  border-radius: 12px;
+  padding: 10px 14px !important;
+  border-radius: 8px;
   color: var(--text-muted) !important;
   font-weight: 500;
+  font-size: 0.92rem;
   text-decoration: none;
-  transition: var(--transition);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.sidebar-nav a.active,
 .sidebar-nav a:hover {
-  background-color: rgba(59, 130, 246, 0.1) !important;
-  color: var(--primary) !important;
+  background-color: var(--hover-and-active) !important;
+  color: var(--text-main) !important;
+}
+
+.sidebar-nav a.active {
+  background-color: var(--hover-and-active) !important;
+  color: var(--text-active) !important;
+  font-weight: 600;
 }
 
 /* Navbar móvil */
 .navbar-mobile-custom {
-  background-color: var(--bg-dark);
+  background-color: var(--color-fondo);
+  border-bottom: 1px solid var(--border);
   z-index: 1050;
 }
 
 .navbar-mobile-logo {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
 }
 
-/* Adaptabilidad (Responsive) */
+/* Responsive */
 @media (max-width: 991px) {
   .sidebar {
     display: none !important;
