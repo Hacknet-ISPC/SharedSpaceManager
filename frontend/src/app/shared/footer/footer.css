@@ -1,7 +1,7 @@
 .custom-footer {
   padding: 56px 0 32px;
   border-top: 1px solid var(--color-borde);
-  background-color: var(--color-fondo);
+  background-color: var(--bg-card);
 }
 
 .footer-logo {
