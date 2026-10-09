@@ -108,9 +108,16 @@
 }
 
 .navbar-mobile-logo {
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
   border-radius: 8px;
+}
+
+.navbar-toggler{
+  border: none;
+  background-color: var(--accent);
+  font-size: 1rem;
+  color: var(--text-main);
 }
 
 /* Responsive */
