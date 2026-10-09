@@ -1,7 +1,6 @@
 .custom-navbar {
-  min-height: 80px;
+  min-height: 72px;
   background-color: var(--color-fondo);
-  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-borde);
   z-index: 100;
 }
@@ -9,64 +8,79 @@
 .custom-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin-right: 0;
 }
 
 .custom-logo img {
-  height: 40px;
-  width: 40px;
-  border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  border-radius: 8px;
 }
 
-.login-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-texto);
 }
 
 .custom-nav-links {
-  gap: 20px;
+  gap: 8px;
 }
 
 .custom-nav-links .nav-link {
-  font-size: 0.95rem;
+  position: relative;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--color-texto-suave) !important;
+  padding: 8px 12px;
   transition: color 0.2s ease;
 }
 
-.custom-nav-links .nav-link:hover {
-  color: var(--color-primario) !important;
+.custom-nav-links .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+  height: 2px;
+  background-color: var(--color-primario);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.custom-nav-links .nav-link:hover,
+.custom-nav-links .nav-link.active {
+  color: var(--color-texto) !important;
+}
+
+.custom-nav-links .nav-link:hover::after,
+.custom-nav-links .nav-link.active::after {
+  transform: scaleX(1);
 }
 
 .custom-nav-links .nav-link.nav-link-admin {
-  font-size: 0.95rem;
-  color: var(--color-acento) !important;
+  color: var(--color-primario) !important;
 }
 
 .custom-login-btn {
   border: 1.5px solid var(--color-primario) !important;
-  color: white !important;
+  background-color: transparent;
+  color: var(--color-primario) !important;
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 10px 24px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  padding: 8px 20px;
+  border-radius: 6px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .custom-login-btn:hover {
-  transform: translateY(-2px);
   background-color: var(--color-primario);
-  color: white !important;
-}
-
-.logo-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #fff, var(--color-primario));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff !important;
 }
 
 .custom-toggler {
@@ -74,20 +88,21 @@
 }
 
 .custom-toggler:focus {
-  box-shadow: 0 0 0 0.25rem rgba(246, 59, 59, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(232, 93, 4, 0.2);
 }
 
+/* Sin invert: el ícono por defecto de Bootstrap ya es oscuro sobre fondo claro */
 .custom-toggler .navbar-toggler-icon {
-  filter: invert(1);
-}
-
-.custom-nav-links .nav-link.active {
-  color: var(--color-primario) !important;
+  filter: none;
 }
 
 @media (max-width: 767.98px) {
   .custom-nav-links {
-    padding: 20px 0 10px 0;
-    gap: 10px;
+    padding: 16px 0 8px 0;
+    gap: 4px;
+  }
+
+  .custom-nav-links .nav-link::after {
+    display: none;
   }
 }
