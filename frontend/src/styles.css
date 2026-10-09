@@ -1,35 +1,36 @@
 /* --- Variables Globales --- */
 :root {
-  --color-fondo: #0f172a;
-  --color-primario: #3b82f6;
-  --color-acento: #60a5fa;
-  --color-texto: #f8fafc;
-  --color-texto-suave: #94a3b8;
-  --color-borde: rgba(255, 255, 255, 0.07);
+  /* Paleta base */
+  --color-fondo: #ffffff;
+  --color-primario: #e85d04;
+  --color-acento: #faa307;
+  --color-texto: #0b090a;
+  --color-texto-suave: #5f5658;
+  --color-borde: rgba(11, 9, 10, 0.1);
 
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --accent: #60a5fa;
-  --hover-and-active: rgba(59, 130, 246, 0.1);
+  --primary: #e85d04;
+  --primary-hover: #dc2f02;
+  --accent: #faa307;
+  --hover-and-active: rgba(232, 93, 4, 0.1);
 
   /* Fondos */
-  --bg-dark: #0f172a;
-  --bg-card: #1e293b;
-  --bg-sidebar: #0f172a;
+  --bg-dark: #ffffff; /* fondo general */
+  --bg-card: #fff8f0; /* tarjetas: blanco apenas cálido para separarlas del fondo */
+  --bg-sidebar: #ffffff;
 
   /* Texto */
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-active: #3b82f6;
+  --text-main: #0b090a;
+  --text-muted: #5f5658;
+  --text-active: #dc2f02; /* más oscuro que el primario para mejor contraste sobre blanco */
 
   /* Bordes y sombras */
-  --border: rgba(255, 255, 255, 0.07);
-  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --border: rgba(11, 9, 10, 0.1);
+  --shadow: 0 10px 15px -3px rgba(11, 9, 10, 0.08), 0 4px 6px -2px rgba(11, 9, 10, 0.04);
 
   /* Estados */
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
+  --success: #16a34a;
+  --warning: #f48c06;
+  --danger: #dc2f02;
 
   /* Animaciones */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
