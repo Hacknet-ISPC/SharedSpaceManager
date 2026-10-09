@@ -4,6 +4,11 @@
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+
+  background-image: url(/fondo-sq3.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card {
@@ -48,7 +53,7 @@
 .mark {
   background-color: var(--bg-card);
   font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -63,7 +68,7 @@
   align-items: center;
   gap: 0.35rem;
   font-family: 'DM Mono', monospace;
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   font-weight: 300;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -109,7 +114,7 @@ h1 {
 
 label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -156,7 +161,7 @@ input:hover:not(:focus) {
 .forgot {
   display: block;
   font-family: 'DM Mono', monospace;
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   font-weight: 300;
   color: var(--text-muted);
   text-align: right;
@@ -207,7 +212,7 @@ button:hover {
 .signup {
   margin-top: 1.4rem;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 300;
   color: var(--text-muted);
   animation: fadeSlide 0.5s 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
@@ -246,7 +251,7 @@ input.ng-invalid.ng-touched:focus {
 
 .error {
   font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.02em;
   color: #f87171;
