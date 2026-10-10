@@ -85,7 +85,7 @@ body {
 
 .btn-primary {
   background-color: var(--primary);
-  color: var(--text-main);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
