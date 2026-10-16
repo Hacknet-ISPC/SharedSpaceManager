@@ -40,6 +40,17 @@ class RegistroSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = ["id", "username", "first_name", "last_name", "email", "password"]
+        extra_kwargs = {"username": {"required": False, "allow_blank": True}}
+
+    def validate(self, attrs):
+        # Si no mandan username (o viene vacío), se usa el email
+        if not attrs.get("username"):
+            attrs["username"] = attrs["email"]
+            if Usuario.objects.filter(username=attrs["username"]).exists():
+                raise serializers.ValidationError(
+                    {"username": "Ese nombre de usuario ya está en uso. Elegí otro."}
+                )
+        return attrs
 
     def create(self, validated_data):
         # create_user hashea la contraseña
