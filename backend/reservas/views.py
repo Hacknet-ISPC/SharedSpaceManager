@@ -25,6 +25,19 @@ class ReservaView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def get(self, request):
+        try:
+            reservas = Reserva.objects.order_by("fecha", "hora_inicio")
+            if not request.user.is_staff:
+                reservas = reservas.filter(usuario=request.user)
+            serializer = ReservaSerializer(reservas, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception:
+            return Response(
+                {"error": "Error interno del servidor"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
+
     def delete(self, request, pk=None):
         """Elimina una reserva específica por su ID, asegurando que pertenezca al usuario autenticado."""
         # Busca la reserva o devuelve un 404 si no existe
