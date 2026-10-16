@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from .serializers import ReservaSerializer
 
 
-class ReservaCreateView(APIView):
+class ReservaView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
