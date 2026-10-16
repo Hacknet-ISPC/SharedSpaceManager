@@ -48,3 +48,44 @@ class RegistroSerializer(serializers.ModelSerializer):
         usuario.rol = Rol.objects.filter(nombre_rol="Cliente").first()
         usuario.save()
         return usuario
+
+
+class LoginSerializer(serializers.Serializer):
+    """Para iniciar sesión validando credenciales contra la base de datos."""
+
+    username = serializers.CharField(required=False, allow_blank=True)
+    email = serializers.EmailField(required=False, allow_blank=True)
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        username = attrs.get("username")
+        email = attrs.get("email")
+        password = attrs.get("password")
+
+        if not username and not email:
+            raise serializers.ValidationError(
+                "Debe proporcionar un nombre de usuario o un correo electrónico."
+            )
+
+        if not password:
+            raise serializers.ValidationError("Debe proporcionar una contraseña.")
+
+        usuario = None
+        if email:
+            usuario = Usuario.objects.filter(email__iexact=email).first()
+        if not usuario and username:
+            usuario = Usuario.objects.filter(username__iexact=username).first()
+
+        if not usuario or not usuario.check_password(password):
+            raise serializers.ValidationError(
+                "Credenciales inválidas. Verifique sus datos e intente nuevamente."
+            )
+
+        if not usuario.is_active:
+            raise serializers.ValidationError(
+                "Esta cuenta de usuario se encuentra inactiva."
+            )
+
+        attrs["usuario"] = usuario
+        return attrs
+
