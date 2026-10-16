@@ -51,34 +51,28 @@ class RegistroSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.Serializer):
-    """Para iniciar sesión validando credenciales contra la base de datos."""
+    """Para iniciar sesión únicamente con correo electrónico y contraseña."""
 
-    username = serializers.CharField(required=False, allow_blank=True)
-    email = serializers.EmailField(required=False, allow_blank=True)
+    email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
 
     def validate(self, attrs):
-        username = attrs.get("username")
         email = attrs.get("email")
         password = attrs.get("password")
 
-        if not username and not email:
+        if not email:
             raise serializers.ValidationError(
-                "Debe proporcionar un nombre de usuario o un correo electrónico."
+                "Debe proporcionar un correo electrónico."
             )
 
         if not password:
             raise serializers.ValidationError("Debe proporcionar una contraseña.")
 
-        usuario = None
-        if email:
-            usuario = Usuario.objects.filter(email__iexact=email).first()
-        if not usuario and username:
-            usuario = Usuario.objects.filter(username__iexact=username).first()
+        usuario = Usuario.objects.filter(email__iexact=email).first()
 
         if not usuario or not usuario.check_password(password):
             raise serializers.ValidationError(
-                "Credenciales inválidas. Verifique sus datos e intente nuevamente."
+                "Credenciales inválidas. Verifique su correo y contraseña."
             )
 
         if not usuario.is_active:
@@ -88,4 +82,5 @@ class LoginSerializer(serializers.Serializer):
 
         attrs["usuario"] = usuario
         return attrs
+
 

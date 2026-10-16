@@ -39,18 +39,6 @@ class UsuariosAuthTests(APITestCase):
         self.assertEqual(response.data["username"], "nuevousuario")
         self.assertTrue(Usuario.objects.filter(username="nuevousuario").exists())
 
-    def test_login_con_username_exitoso(self):
-        url = "/api/v1/usuarios/login/"
-        data = {
-            "username": "testuser",
-            "password": "Password1234",
-        }
-        response = self.client.post(url, data, format="json")
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn("usuario", response.data)
-        self.assertEqual(response.data["usuario"]["username"], "testuser")
-        self.assertEqual(response.data["usuario"]["rol_nombre"], "Cliente")
-
     def test_login_con_email_exitoso(self):
         url = "/api/v1/usuarios/login/"
         data = {
@@ -59,14 +47,26 @@ class UsuariosAuthTests(APITestCase):
         }
         response = self.client.post(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn("usuario", response.data)
         self.assertEqual(response.data["usuario"]["email"], "testuser@example.com")
+        self.assertEqual(response.data["usuario"]["rol_nombre"], "Cliente")
+
+    def test_login_requiere_email(self):
+        url = "/api/v1/usuarios/login/"
+        data = {
+            "password": "Password1234",
+        }
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn("email", response.data)
 
     def test_login_credenciales_invalidas(self):
         url = "/api/v1/usuarios/login/"
         data = {
-            "username": "testuser",
+            "email": "testuser@example.com",
             "password": "password_incorrecta",
         }
         response = self.client.post(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
 
