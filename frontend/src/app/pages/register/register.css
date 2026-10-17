@@ -159,6 +159,13 @@ input:hover:not(:focus) {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.optional {
+  font-size: 0.6em;
+  color: #666;
+  font-style: italic;
+}
+
+
 /* El botón de registro tiene margen superior mayor
    para separarlo visualmente de los campos */
 button {
