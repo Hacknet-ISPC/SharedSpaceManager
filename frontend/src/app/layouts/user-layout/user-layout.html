@@ -31,7 +31,7 @@
           </a>
         </li>
         <li class="nav-item border-top border-secondary pt-2 mt-2">
-          <a routerLink="/" class="nav-link text-danger p-2">
+          <a (click)="cerrarSesion($event)" role="button" class="nav-link text-danger p-2" style="cursor: pointer;">
             <i class="bi bi-door-open me-2"></i> Cerrar Sesión
           </a>
         </li>
@@ -75,7 +75,7 @@
           </a>
         </li>
         <li class="nav-item nav-item-logout">
-          <a routerLink="/" class="nav-link">
+          <a (click)="cerrarSesion($event)" role="button" class="nav-link" style="cursor: pointer;">
             <span><i class="bi bi-door-open"></i></span>
             <span>Cerrar Sesión</span>
           </a>

@@ -25,3 +25,22 @@ export interface RegistroRespuesta {
   last_name: string;
   email: string;
 }
+
+export interface LoginPayload {
+  email: string;
+  password: string;
+}
+
+export interface LoginRespuesta {
+  mensaje: string;
+  usuario: {
+    id: number;
+    username: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    rol: number;
+    rol_nombre: string;
+    date_joined: string;
+  };
+}

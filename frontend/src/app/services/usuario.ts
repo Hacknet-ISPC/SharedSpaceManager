@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RegistroPayload, RegistroRespuesta, Usuario } from '../models/usuario';
+import { LoginPayload, LoginRespuesta, RegistroPayload, RegistroRespuesta, Usuario } from '../models/usuario';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -21,8 +21,19 @@ export class UsuarioService {
     return this.http.post<RegistroRespuesta>(`${this.backUrl}/registro/`, datos);
   }
 
+  // Inicio de sesión conectado al backend de Django
+  login(datos: LoginPayload): Observable<LoginRespuesta> {
+    return this.http.post<LoginRespuesta>(`${this.backUrl}/login/`, datos);
+  }
+
+  // Cierra la sesión eliminando los datos del localStorage
+  cerrarSesion(): void {
+    localStorage.removeItem('usuario');
+  }
+
   // Obtiene el listado de usuarios para validación de credenciales y gestión
   obtenerUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.apiUrl);
   }
 }
+

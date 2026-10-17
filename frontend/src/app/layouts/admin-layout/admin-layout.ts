@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
+import { UsuarioService } from '../../services/usuario';
 
 @Component({
-  imports: [RouterOutlet, RouterLink ],
+  imports: [RouterOutlet, RouterLink],
   selector: 'app-admin-layout',
   styleUrl: './admin-layout.css',
   templateUrl: './admin-layout.html',
 })
-export class AdminLayout {}
+export class AdminLayout {
+  private usuarioService = inject(UsuarioService);
+  private router = inject(Router);
+
+  cerrarSesion(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    this.usuarioService.cerrarSesion();
+    this.router.navigate(['/login']);
+  }
+}

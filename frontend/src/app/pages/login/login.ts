@@ -1,7 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { UsuarioService } from '../../services/usuario';
+import { LoginPayload } from '../../models/usuario';
 
 @Component({
   imports: [RouterLink, ReactiveFormsModule],
@@ -14,13 +17,32 @@ export class Login {
   private usuarioService = inject(UsuarioService);
   private router = inject(Router);
 
-  errorMessage = '';
+  erroresServidor = signal<Record<string, string>>({});
+  errorGeneral = signal('');
+  enviando = signal(false);
+
+  private camposBackend: Record<string, string> = {
+    email: 'email',
+    password: 'password',
+  };
 
   // Formulario reactivo para el inicio de sesión
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
+
+  constructor() {
+    // Al editar cualquier campo se limpian los errores que vinieron del servidor
+    this.loginForm.valueChanges.pipe(takeUntilDestroyed()).subscribe(() => {
+      if (Object.keys(this.erroresServidor()).length) {
+        this.erroresServidor.set({});
+      }
+      if (this.errorGeneral()) {
+        this.errorGeneral.set('');
+      }
+    });
+  }
 
   get email() {
     return this.loginForm.controls.email;
@@ -36,22 +58,26 @@ export class Login {
       return;
     }
 
-    this.errorMessage = '';
     const { email, password } = this.loginForm.value;
+    const credenciales: LoginPayload = {
+      email: email!.trim(),
+      password: password!,
+    };
 
-    // Consulta los usuarios a json-server para verificar credenciales
-    this.usuarioService.obtenerUsuarios().subscribe({
-      next: (usuarios) => {
-        const usuario = usuarios.find(
-          (u) =>
-            u.email.trim().toLowerCase() === email?.trim().toLowerCase() &&
-            u.contraseña === password
-        );
+    this.enviando.set(true);
+    this.errorGeneral.set('');
 
-        if (!usuario) {
-          this.errorMessage = 'Correo o contraseña incorrectos.';
-          return;
-        }
+    this.usuarioService.login(credenciales).subscribe({
+      next: (res) => {
+        const usuarioBack = res.usuario;
+        // Mapeamos los datos para mantener compatibilidad con el resto de la app
+        const usuario = {
+          ...usuarioBack,
+          id_usuario: usuarioBack.id,
+          id_rol: usuarioBack.rol,
+          nombre: usuarioBack.first_name,
+          apellido: usuarioBack.last_name,
+        };
 
         // Guardar sesión en localStorage
         localStorage.setItem('usuario', JSON.stringify(usuario));
@@ -65,11 +91,33 @@ export class Login {
           this.router.navigate(['/']);
         }
       },
-      error: (err) => {
-        console.error('Error al iniciar sesión:', err);
-        this.errorMessage = 'Error de conexión con el servidor.';
+      error: (err: HttpErrorResponse) => {
+        this.enviando.set(false);
+        if (err.status === 400 && err.error && typeof err.error === 'object') {
+          this.mostrarErroresServidor(err.error);
+        } else if (err.status === 0) {
+          this.errorGeneral.set('No se pudo conectar con el servidor. Intentá de nuevo en unos minutos.');
+        } else {
+          this.errorGeneral.set('Ocurrió un error inesperado al iniciar sesión.');
+        }
       },
     });
   }
+
+  // Muestra errores de campos o error general si no coincide con ningún campo
+  private mostrarErroresServidor(errores: Record<string, string[] | string>): void {
+    const porCampo: Record<string, string> = {};
+    for (const [campoBackend, mensajes] of Object.entries(errores)) {
+      const texto = Array.isArray(mensajes) ? mensajes.join(' ') : mensajes;
+      const campoForm = this.camposBackend[campoBackend];
+      if (campoForm) {
+        porCampo[campoForm] = texto;
+      } else {
+        this.errorGeneral.set(texto);
+      }
+    }
+    this.erroresServidor.set(porCampo);
+  }
 }
+
 
