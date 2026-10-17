@@ -17,10 +17,14 @@
                     }
                 </small>
                 }
+                @if (erroresServidor()['name']) {
+                <small class="error">{{ erroresServidor()['name'] }}</small>
+                }
             </div>
             <div class="field">
                 <label for="lastname">Apellido</label>
-                <input id="lastname" type="text" formControlName="lastname" placeholder="Tu lastname" autocomplete="lastname" />
+                <input id="lastname" type="text" formControlName="lastname" placeholder="Tu apellido"
+                    autocomplete="lastname" />
                 @if (lastname.invalid && lastname.touched) {
                 <small class="error">
                     @if (lastname.errors?.['required']) {
@@ -29,6 +33,17 @@
                     Debe tener al menos 2 caracteres.
                     }
                 </small>
+                }
+                @if (erroresServidor()['lastname']) {
+                <small class="error">{{ erroresServidor()['lastname'] }}</small>
+                }
+            </div>
+            <div class="field">
+                <label for="username">Nombre de usuario <span class="optional">(opcional)</span></label>
+                <input id="username" type="text" formControlName="username" placeholder="Elegí un nombre de usuario"
+                    autocomplete="username" />
+                @if (erroresServidor()['username']) {
+                <small class="error">{{ erroresServidor()['username'] }}</small>
                 }
             </div>
 
@@ -45,6 +60,9 @@
                     }
                 </small>
                 }
+                @if (erroresServidor()['email']) {
+                <small class="error">{{ erroresServidor()['email'] }}</small>
+                }
             </div>
 
             <div class="field">
@@ -56,9 +74,12 @@
                     @if (password.errors?.['required']) {
                     La contraseña es obligatoria.
                     } @else if (password.errors?.['minlength']) {
-                    Debe tener al menos 6 caracteres.
+                    Debe tener al menos 8 caracteres.
                     }
                 </small>
+                }
+                @if (erroresServidor()['password']) {
+                <small class="error">{{ erroresServidor()['password'] }}</small>
                 }
             </div>
 
@@ -78,7 +99,13 @@
                 }
             </div>
 
-            <button type="submit" [disabled]="registerForm.invalid">Crear Cuenta</button>
+            @if (errorGeneral()) {
+            <small class="error">{{ errorGeneral() }}</small>
+            }
+
+            <button type="submit" [disabled]="registerForm.invalid || enviando()">
+                {{ enviando() ? 'Creando...' : 'Crear Cuenta' }}
+            </button>
         </form>
 
         <p class="signup">
