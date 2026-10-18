@@ -1,6 +1,6 @@
 <header class="main-header mb-4">
   <h1 class="fw-bold">¡Hola de nuevo, <span class="highlight">{{ usuarioNombre }}!</span></h1>
-  <p class="text-secondary">Tienes {{ reservasSemanalesCount }} reservas próximas para esta semana.</p>
+  <p class="text-secondary">Tienes {{ reservasSemanalesCount() }} reservas próximas para esta semana.</p>
 </header>
 
 <div class="row g-4 content-grid">
@@ -10,7 +10,7 @@
       <i class="bi bi-calendar-check text-primary me-2"></i>Tus Próximas Reservas
     </h2>
 
-    @for (reserva of proximasReservas; track reserva.id) {
+    @for (reserva of proximasReservas(); track reserva.id) {
     <div class="card card-reserva mb-3 p-3" [class.card-accent]="reserva.acento">
       <div class="d-flex justify-content-between align-items-center">
         <div>
@@ -28,7 +28,7 @@
 
     <h2 class="reservas-title h4 mb-3 mt-4">Espacios Disponibles</h2>
     <div class="row g-3 espacios-grid">
-      @for (espacio of espaciosDisponibles; track espacio.id) {
+      @for (espacio of espaciosDisponibles(); track espacio.id) {
       <div class="col-12 col-sm-6">
         <div class="card card-espacio p-3 h-100 d-flex flex-column justify-content-between">
           <div>
