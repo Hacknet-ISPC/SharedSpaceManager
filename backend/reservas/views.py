@@ -39,6 +39,7 @@ class ReservaView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class ReservaCancelarView(APIView):
     """/reservas/<pk>/cancelar/  ->  PATCH (dueño o administrador)"""
 
@@ -72,4 +73,4 @@ class ReservaCancelarView(APIView):
                 {"error": "Error interno del servidor"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
-        return Response(ReservaSerializer(reserva).data, status=status.HTTP_200_OK)
+        return Response(ReservaSerializer(reserva).data, status=status.HTTP_200_OK)

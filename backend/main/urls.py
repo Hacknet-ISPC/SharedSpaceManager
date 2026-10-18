@@ -23,4 +23,5 @@ urlpatterns = [
     path("api/v1/usuarios/", include("usuarios.urls")),
     path("api/v1/", include("core.urls")),
     path("api/v1/", include("reservas.urls")),
+    path("api/v1/", include("canchas.urls")),
 ]
