@@ -11,8 +11,8 @@ El sistema digitaliza el proceso tradicional de reservas telefónicas o presenci
 ## Funcionalidades Principales
 
 ### Gestión de Usuarios y Autenticación
-- **Registro de jugadores:** creación de cuentas con validación de datos personales.
-- **Inicio de sesión y roles:** acceso diferenciado para clientes/jugadores y administradores del complejo.
+- **Registro de usuarios:** creación de cuentas con validación de datos personales.
+- **Inicio de sesión y roles:** acceso diferenciado para admin/clientes.
 - **Perfil de usuario:** consulta y administración de datos de contacto.
 
 ### Reserva de Canchas y Turnos
@@ -77,21 +77,13 @@ ng serve
 ```
 > La aplicación estará disponible en: `http://localhost:4200/`
 
-**Terminal 2 — JSON Server (Mock API para desarrollo):**
-```bash
-npm run server
-```
-> La API simulada estará disponible en: `http://localhost:3000/` con endpoints para `usuarios`, `roles`, `espacios`/`canchas`, `reservas` y `desarrolladores`.
-
----
-
 ## Instalación y ejecución (Backend)
 
 El backend está desarrollado con **Django** y **Django REST Framework**, conectado a una base de datos **MySQL**.
 
 ### Requisitos previos
 - **Python 3.10+** → [https://www.python.org/](https://www.python.org/)
-- **MySQL Server** → [https://www.mysql.com/](https://www.mysql.com/)
+- **MySQL Server 9.7.2** → [https://www.mysql.com/](https://www.mysql.com/)
 
 ### 1. Crear y activar el entorno virtual
 Dentro de la carpeta `backend`:
@@ -135,6 +127,19 @@ Aplicar las migraciones de Django:
 ```bash
 python manage.py migrate
 ```
+
+Ejecutar el script para insertar datos de prueba
+
+```bash
+core/
+└── management/   
+    └── commands/        
+        └── cargar_datos.py
+```
+```bash
+python manage.py cargar_datos.py
+```
+
 
 ### 5. Iniciar el servidor Django
 ```bash
