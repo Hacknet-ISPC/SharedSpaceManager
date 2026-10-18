@@ -1,105 +1,60 @@
-<div class="d-flex justify-content-center align-items-center py-4">
-  <div class="card shadow p-4" style="width: 100%; max-width: 500px;">
-    <div class="d-flex align-items-center gap-2 footer-logo mb-3">
-      <img src="logo.png" alt="Logo" />
-    </div>
-    <h1 class="text-center mb-4 h3 fw-bold">Reserva tu cancha</h1>
+<header class="mb-4">
+  <h1 class="fw-bold h2 mb-1">Nueva <span style="color:var(--primary)">Reserva</span></h1>
+  <p class="text-secondary mb-0">Elegí la cancha, el día y el horario que necesitás.</p>
+</header>
 
-    <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
-      <!-- Espacio seleccionado -->
-      <div class="mb-3">
-        <label for="espacio" class="form-label">Espacio seleccionado</label>
-        <select id="espacio" formControlName="espacio" class="form-select"
-          [class.is-invalid]="reservaForm.get('espacio')?.touched && reservaForm.get('espacio')?.invalid">
-          <option value="" disabled>Seleccionar sala a solicitar</option>
-          @for (e of espacios(); track e.id) {
-          <option [value]="e.id_espacio">{{ e.nombre }} (hasta {{ e.capacidad }} personas)</option>
-          }
-        </select>
-        @if (reservaForm.get('espacio')?.touched && reservaForm.get('espacio')?.hasError('required')) {
-        <div class="text-danger small mt-1">
-          <i class="bi bi-exclamation-circle me-1"></i>Debes seleccionar un espacio.
-        </div>
-        }
-      </div>
+<form [formGroup]="reservaForm" (ngSubmit)="onSubmit()" class="row g-3">
 
-      <!-- Cantidad de personas -->
-      <div class="mb-3">
-        <label for="cantidadPersonas" class="form-label">Cantidad de Personas</label>
-        <input id="cantidadPersonas" type="number" formControlName="cantidadPersonas" class="form-control" min="1"
-          [max]="espacioSeleccionado()?.capacidad ?? null" placeholder="Cantidad de personas"
-          [class.is-invalid]="reservaForm.get('cantidadPersonas')?.touched && reservaForm.get('cantidadPersonas')?.invalid" />
-        @if (reservaForm.get('cantidadPersonas')?.touched && reservaForm.get('cantidadPersonas')?.hasError('required'))
-        {
-        <div class="text-danger small mt-1">
-          <i class="bi bi-exclamation-circle me-1"></i>Indica la cantidad de personas.
-        </div>
-        }
-      </div>
-
-      <!-- Fecha -->
-      <div class="mb-3">
-        <label for="fecha" class="form-label">Fecha</label>
-        <input id="fecha" type="date" formControlName="fecha" class="form-control" [min]="hoy"
-          [class.is-invalid]="reservaForm.get('fecha')?.touched && reservaForm.get('fecha')?.invalid" />
-        @if (reservaForm.get('fecha')?.touched && reservaForm.get('fecha')?.hasError('required')) {
-        <div class="text-danger small mt-1">
-          <i class="bi bi-exclamation-circle me-1"></i>La fecha es obligatoria.
-        </div>
-        }
-      </div>
-
-      <!-- Horario -->
-      <div class="row mb-3">
-        <div class="col-6">
-          <label for="horaInicio" class="form-label">Hora de inicio</label>
-          <input id="horaInicio" type="time" formControlName="horaInicio" class="form-control"
-            [class.is-invalid]="reservaForm.get('horaInicio')?.touched && reservaForm.get('horaInicio')?.invalid" />
-          @if (reservaForm.get('horaInicio')?.touched && reservaForm.get('horaInicio')?.hasError('required')) {
-          <div class="text-danger small mt-1">
-            <i class="bi bi-exclamation-circle me-1"></i>Indica la hora de inicio.
-          </div>
-          }
-        </div>
-
-        <div class="col-6">
-          <label for="horaFin" class="form-label">Hora de fin</label>
-          <input id="horaFin" type="time" formControlName="horaFin" class="form-control"
-            [class.is-invalid]="reservaForm.get('horaFin')?.touched && reservaForm.get('horaFin')?.invalid" />
-          @if (reservaForm.get('horaFin')?.touched && reservaForm.get('horaFin')?.hasError('required')) {
-          <div class="text-danger small mt-1">
-            <i class="bi bi-exclamation-circle me-1"></i>Indica la hora de fin.
-          </div>
-          }
-        </div>
-      </div>
-
-      @if (reservaForm.hasError('rangoInvalido') && reservaForm.get('horaFin')?.touched) {
-      <div class="text-danger small mb-3">
-        <i class="bi bi-exclamation-circle me-1"></i>La hora de fin debe ser posterior a la de inicio.
-      </div>
+  <div class="col-12">
+    <label for="cancha" class="form-label">Cancha</label>
+    <select id="cancha" class="form-select" formControlName="cancha"
+      [class.is-invalid]="reservaForm.controls.cancha.touched && reservaForm.controls.cancha.invalid">
+      <option value="">Elegí una cancha</option>
+      @for (c of canchas(); track c.id) {
+      @if (c.estado === 'disponible') {
+      <option [value]="c.id">{{ c.nombre }} · {{ c.tipo_nombre }}</option>
       }
-
-      <!-- Error general (solapamiento, fallo al guardar, capacidad) -->
-      @if (error()) {
-      <div class="alert alert-danger py-2 small" role="alert">
-        <i class="bi bi-exclamation-triangle me-1"></i>{{ error() }}
-      </div>
       }
-
-      <!-- Botones de Acción -->
-      <div class="d-grid mt-4">
-        <button type="submit" class="btn btn-success" [disabled]="enviando()">
-          @if (enviando()) {
-          <span class="spinner-border spinner-border-sm me-2"></span>Guardando...
-          } @else {
-          Reservar
-          }
-        </button>
-        <a routerLink="/user" class="btn btn-cancel mt-2">
-          Cancelar
-        </a>
-      </div>
-    </form>
+    </select>
+    <div class="invalid-feedback">Seleccioná una cancha.</div>
   </div>
-</div>
+
+  <div class="col-12 col-md-4">
+    <label for="fecha" class="form-label">Fecha</label>
+    <input id="fecha" type="date" class="form-control" formControlName="fecha" [min]="hoy"
+      [class.is-invalid]="reservaForm.controls.fecha.touched && reservaForm.controls.fecha.invalid" />
+    <div class="invalid-feedback">Elegí una fecha.</div>
+  </div>
+
+  <div class="col-6 col-md-4">
+    <label for="horaInicio" class="form-label">Hora de inicio</label>
+    <input id="horaInicio" type="time" step="1800" class="form-control" formControlName="horaInicio"
+      [class.is-invalid]="reservaForm.controls.horaInicio.touched && reservaForm.controls.horaInicio.invalid" />
+    <div class="invalid-feedback">Indicá la hora de inicio.</div>
+  </div>
+
+  <div class="col-6 col-md-4">
+    <label for="duracion" class="form-label">Duración</label>
+    <select id="duracion" class="form-select" formControlName="duracion">
+      @for (d of duraciones; track d.minutos) {
+      <option [ngValue]="d.minutos">{{ d.etiqueta }}</option>
+      }
+    </select>
+  </div>
+
+  @if (error()) {
+  <div class="col-12">
+    <div class="alert alert-danger mb-0" role="alert">
+      <i class="bi bi-exclamation-triangle-fill me-1"></i>{{ error() }}
+    </div>
+  </div>
+  }
+
+  <div class="col-12 d-flex gap-2 flex-wrap">
+    <button type="submit" class="btn btn-primary text-white" [disabled]="enviando()">
+      <i class="bi bi-calendar-check me-1"></i>
+      {{ enviando() ? 'Reservando...' : 'Confirmar reserva' }}
+    </button>
+    <a routerLink="/user/mis-reservas" class="btn btn-outline-secondary">Cancelar</a>
+  </div>
+</form>

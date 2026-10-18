@@ -1,19 +1,26 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ReactiveFormsModule, FormBuilder, ValidatorFn, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { switchMap, throwError } from 'rxjs';
-import { ReservaService } from '../../../services/reserva.ts';
-import { EspacioService } from '../../../services/espacio.js';
-import { Reserva } from '../../../models/reserva';
-import { Espacio } from '../../../models/espacio';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ReservaService } from '../../../services/reserva';
+import { CanchaService } from '../../../services/cancha';
+import { NuevaReserva } from '../../../models/reserva';
+import { Cancha } from '../../../models/cancha';
 
-// "HH:mm" se puede comparar como string sin problemas
-const rangoHorario: ValidatorFn = (group) => {
-  const inicio = group.get('horaInicio')?.value;
-  const fin = group.get('horaFin')?.value;
-  return inicio && fin && fin <= inicio ? { rangoInvalido: true } : null;
-};
+// Duraciones que acepta el backend, en minutos
+export const DURACIONES = [
+  { minutos: 60, etiqueta: '1 hora' },
+  { minutos: 90, etiqueta: '1 hora y media' },
+];
+
+function sumarMinutos(hora: string, minutos: number): string {
+  const [h, m] = hora.split(':').map(Number);
+  const total = h * 60 + m + minutos;
+  const hh = Math.floor(total / 60) % 24;
+  const mm = total % 60;
+  return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+}
 
 @Component({
   selector: 'app-formulario-reserva',
@@ -25,36 +32,23 @@ export class FormularioReserva {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private reservaService = inject(ReservaService);
-  private espacioService = inject(EspacioService);
+  private canchaService = inject(CanchaService);
 
   enviando = signal(false);
   error = signal('');
   hoy = new Date().toLocaleDateString('en-CA');
+  duraciones = DURACIONES;
 
-  private readonly idUsuario: number = 1;
-
-  reservaForm = this.fb.nonNullable.group(
-    {
-      espacio: ['', Validators.required],
-      cantidadPersonas: ['', Validators.required],
-      fecha: ['', Validators.required],
-      horaInicio: ['', Validators.required],
-      horaFin: ['', Validators.required],
-    },
-    { validators: rangoHorario },
-  );
-
-  espacios = toSignal(this.espacioService.obtenerEspacios(), {
-    initialValue: [] as Espacio[],
+  reservaForm = this.fb.nonNullable.group({
+    cancha: ['', Validators.required],
+    fecha: ['', Validators.required],
+    horaInicio: ['', Validators.required],
+    duracion: [60, Validators.required],
   });
 
-  private espacioId = toSignal(this.reservaForm.controls.espacio.valueChanges, {
-    initialValue: '',
+  canchas = toSignal(this.canchaService.listar(), {
+    initialValue: [] as Cancha[],
   });
-
-  espacioSeleccionado = computed(() =>
-    this.espacios().find((e) => e.id_espacio === Number(this.espacioId())),
-  );
 
   onSubmit() {
     if (this.reservaForm.invalid) {
@@ -62,60 +56,50 @@ export class FormularioReserva {
       return;
     }
 
-    const { espacio, cantidadPersonas, fecha, horaInicio, horaFin } =
-      this.reservaForm.getRawValue();
+    if (!confirm('¿Estás seguro de que deseas confirmar esta reserva?')) return;
 
-    const capacidad = this.espacioSeleccionado()?.capacidad ?? 0;
-    if (Number(cantidadPersonas) > capacidad) {
-      this.error.set(`Este espacio admite hasta ${capacidad} personas.`);
+    const { cancha, fecha, horaInicio, duracion } = this.reservaForm.getRawValue();
+    const horaFin = sumarMinutos(horaInicio, Number(duracion));
+
+    // Si la reserva cruza la medianoche, el backend no la admite
+    if (horaFin <= horaInicio) {
+      this.error.set('La reserva no puede terminar después de las 00:00.');
       return;
     }
 
-    if (!confirm('¿Estás seguro de que deseas confirmar esta reserva?')) return;
-
-    const reserva: Omit<Reserva, 'id'> = {
-      id_usuario: this.idUsuario,
-      id_espacio: Number(espacio),
+    const reserva: NuevaReserva = {
+      id_cancha: Number(cancha),
       fecha,
       hora_inicio: horaInicio,
       hora_fin: horaFin,
-      cantidad_personas: Number(cantidadPersonas),
-      estado: 'pendiente',
     };
 
     this.enviando.set(true);
     this.error.set('');
 
-    this.reservaService
-      .obtenerPorEspacioYFecha(reserva.id_espacio, reserva.fecha)
-      .pipe(
-        switchMap((existentes) => {
-          const choca = existentes.some(
-            (r) =>
-              r.estado !== 'cancelada' &&
-              reserva.hora_inicio < r.hora_fin &&
-              reserva.hora_fin > r.hora_inicio,
-          );
-          return choca
-            ? throwError(() => new Error('solapamiento'))
-            : this.reservaService.agregarReserva(reserva);
-        }),
-      )
-      .subscribe({
-        next: (creada) => {
-          this.enviando.set(false);
-          this.router.navigate(['/user/confirmacion-reserva'], {
-            state: { reserva: creada },
-          });
-        },
-        error: (e: Error) => {
-          this.enviando.set(false);
-          this.error.set(
-            e.message === 'solapamiento'
-              ? 'Ese espacio ya está reservado en ese horario.'
-              : 'No se pudo guardar la reserva. Intentá de nuevo.',
-          );
-        },
-      });
+    this.reservaService.crear(reserva).subscribe({
+      next: (creada) => {
+        this.enviando.set(false);
+        this.router.navigate(['/user/confirmacion-reserva'], {
+          state: { reserva: creada },
+        });
+      },
+      error: (e: HttpErrorResponse) => {
+        this.enviando.set(false);
+        this.error.set(this.mensajeDeError(e));
+      },
+    });
+  }
+
+  private mensajeDeError(e: HttpErrorResponse): string {
+    if (e.status === 403) return 'Tenés que iniciar sesión para reservar.';
+    if (e.status === 400) {
+      const err = e.error;
+      if (err?.non_field_errors?.length) return err.non_field_errors[0];
+      if (Array.isArray(err) && err.length) return err[0];
+      const primero = err && Object.values(err)[0];
+      if (Array.isArray(primero) && primero.length) return String(primero[0]);
+    }
+    return 'No se pudo guardar la reserva. Intentá de nuevo.';
   }
 }

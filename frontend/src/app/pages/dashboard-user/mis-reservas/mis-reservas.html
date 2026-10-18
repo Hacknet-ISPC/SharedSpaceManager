@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<!-- Sección Próximas Confirmadas -->
+<!-- Próximas Confirmadas -->
 <div class="mb-5">
   <div class="section-divider mb-3">
     <i class="bi bi-check-circle-fill text-success me-1"></i> Próximas Confirmadas
@@ -49,25 +49,24 @@
         <i class="bi bi-calendar-check text-info"></i>
       </span>
       <div>
-        <p class="mb-1 h6 fw-bold reserva-text">Espacio #{{ reserva.id_espacio }}</p>
+        <p class="mb-1 h6 fw-bold reserva-text">Cancha #{{ reserva.id_cancha }}</p>
         <p class="mb-0 small text-secondary">
-          {{ reserva.fecha }} · {{ reserva.hora_inicio }} a {{ reserva.hora_fin }} · {{ reserva.cantidad_personas }}
-          personas
+          {{ reserva.fecha }} · {{ reserva.hora_inicio.slice(0, 5) }} a {{ reserva.hora_fin.slice(0, 5) }}
         </p>
       </div>
     </div>
-    <button type="button" class="btn-action-cancel" (click)="eliminarReserva(reserva.id)">
+    <button type="button" class="btn-action-cancel">
       Cancelar
     </button>
   </div>
   } @empty {
-  <div class=" p-3 text-center border border-secondary rounded-3 mb-3">
+  <div class="p-3 text-center border border-secondary rounded-3 mb-3">
     <p class="text-secondary mb-0 small">No tienes reservas confirmadas actualmente.</p>
   </div>
   }
 </div>
 
-<!-- Sección Pendientes de Aprobación -->
+<!-- Pendientes de Aprobación -->
 <div>
   <div class="section-divider mb-3">
     <i class="bi bi-clock-history text-warning me-1"></i> Pendientes de Aprobación
@@ -83,14 +82,13 @@
         <i class="bi bi-hourglass-split text-warning"></i>
       </span>
       <div>
-        <p class="mb-1 h6 fw-bold reserva-text">Espacio #{{ reserva.id_espacio }}</p>
+        <p class="mb-1 h6 fw-bold reserva-text">Cancha #{{ reserva.id_cancha }}</p>
         <p class="mb-0 small text-secondary">
-          {{ reserva.fecha }} · {{ reserva.hora_inicio }} a {{ reserva.hora_fin }} · {{ reserva.cantidad_personas }}
-          personas
+          {{ reserva.fecha }} · {{ reserva.hora_inicio.slice(0, 5) }} a {{ reserva.hora_fin.slice(0, 5) }}
         </p>
       </div>
     </div>
-    <button type="button" class="btn-action-cancel" (click)="eliminarReserva(reserva.id)">
+    <button type="button" class="btn-action-cancel">
       Cancelar
     </button>
   </div>

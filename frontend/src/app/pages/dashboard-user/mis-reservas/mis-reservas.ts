@@ -1,6 +1,6 @@
-import { Component, effect, inject, computed, signal, OnInit } from '@angular/core';
+import { Component, inject, computed, signal, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ReservaService } from '../../../services/reserva.ts';
+import { ReservaService } from '../../../services/reserva';
 import { Reserva } from '../../../models/reserva';
 
 @Component({
@@ -17,9 +17,9 @@ export class MisReservas implements OnInit {
   // Listas filtradas por estado
   confirmadas = computed(() => this.reservas().filter((r) => r.estado === 'confirmada'));
   pendientes = computed(() => this.reservas().filter((r) => r.estado === 'pendiente'));
-  completadas = computed(() => this.reservas().filter((r) => r.estado === 'completada'));
+  completadas = computed(() => this.reservas().filter((r) => r.estado === 'finalizada'));
 
-  // Contador del total de reservas
+  // Contadores
   totalConfirmadas = computed(() => this.confirmadas().length);
   totalPendientes = computed(() => this.pendientes().length);
   totalCompletadas = computed(() => this.completadas().length);
@@ -30,25 +30,9 @@ export class MisReservas implements OnInit {
   }
 
   cargarReservas(): void {
-    this.reservaService.obtenerReservas().subscribe({
+    this.reservaService.listar().subscribe({
       next: (data) => this.reservas.set(data),
       error: (err) => console.error('Error al cargar reservas:', err),
-    });
-  }
-
-  eliminarReserva(id: string): void {
-    this.reservaService.eliminarReserva(id).subscribe({
-      next: () => {
-        console.log('Reserva eliminada:', id);
-        this.reservas.update((actual) => actual.filter((r) => r.id !== id));
-      },
-      error: (err) => console.error('Error al eliminar la reserva:', err),
-    });
-  }
-
-  constructor() {
-    effect(() => {
-      console.log('reservas:', this.reservas());
     });
   }
 }

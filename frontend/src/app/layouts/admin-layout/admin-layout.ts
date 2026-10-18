@@ -16,7 +16,7 @@ export class AdminLayout {
     if (event) {
       event.preventDefault();
     }
-    this.usuarioService.cerrarSesion();
+    this.usuarioService.logout();
     this.router.navigate(['/login']);
   }
 }

@@ -1,10 +1,16 @@
 export interface Reserva {
-  id: string;
+  id: number;
   id_usuario: number;
-  id_espacio: number;
+  id_cancha: number;
   fecha: string;
   hora_inicio: string;
   hora_fin: string;
-  cantidad_personas: number;
   estado: string;
+}
+
+export interface NuevaReserva {
+  id_cancha: number;
+  fecha: string; // "2026-10-30"
+  hora_inicio: string; // "20:00"
+  hora_fin: string; // "21:00"
 }

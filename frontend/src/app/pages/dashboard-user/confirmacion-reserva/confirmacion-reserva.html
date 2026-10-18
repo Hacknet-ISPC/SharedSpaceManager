@@ -1,29 +1,48 @@
 <div class="d-flex justify-content-center align-items-center py-4">
-  <div class="card card-success shadow p-4 p-md-5 text-center">
+  <div class="card card-success p-4 p-md-5 text-center">
     <div class="success-icon-container mb-4">
       <div class="success-icon-bg">
-        <i class="bi bi-check-lg display-4 text-success"></i>
+        <i class="bi bi-check-lg display-4"></i>
       </div>
     </div>
 
-    <h1 class="mb-2 fw-bold text-white h3">¡Reserva Confirmada!</h1>
+    <h1 class="mb-2 fw-bold h3">¡Solicitud enviada!</h1>
     <p class="text-muted mb-4 px-2 small">
-      Tu solicitud ha sido procesada correctamente. El espacio seleccionado ya se encuentra bloqueado para tu uso.
+      Tu reserva fue registrada y está pendiente de aprobación. Te va a figurar como
+      confirmada cuando el administrador la apruebe.
     </p>
 
-    <div class="resumen-reserva p-3 mb-4 rounded-3 text-start">
-      <div class="d-flex justify-content-between align-items-center">
-        <span class="text-secondary small">Estado:</span>
-        <span class="badge bg-success-soft text-success border border-success-soft">Aprobada</span>
+    @if (reserva) {
+    <div class="resumen-reserva p-3 mb-4 text-start">
+      <div class="resumen-item mb-1">
+        <span class="text-muted small fw-medium">Cancha</span>
+        <span class="small fw-semibold">#{{ reserva.id_cancha }}</span>
+      </div>
+      <div class="resumen-item mb-1">
+        <span class="text-muted small fw-medium">Fecha</span>
+        <span class="small fw-semibold">{{ reserva.fecha }}</span>
+      </div>
+      <div class="resumen-item mb-1">
+        <span class="text-muted small fw-medium">Horario</span>
+        <span class="small fw-semibold">
+          {{ reserva.hora_inicio.slice(0, 5) }} a {{ reserva.hora_fin.slice(0, 5) }}
+        </span>
+      </div>
+      <div class="resumen-item">
+        <span class="text-muted small fw-medium">Estado</span>
+        <span class="badge-pendiente small">
+          {{ pendiente ? 'Pendiente' : reserva.estado }}
+        </span>
       </div>
     </div>
+    }
 
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2 gap-sm-3">
       <a routerLink="/user/mis-reservas" class="btn btn-success-custom">
         Ir a Mis Reservas
       </a>
       <a routerLink="/user/formulario-reserva" class="btn btn-outline-custom">
-        Reservar otro espacio
+        Reservar otra cancha
       </a>
     </div>
   </div>
