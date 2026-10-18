@@ -35,4 +35,21 @@ export class MisReservas implements OnInit {
       error: (err) => console.error('Error al cargar reservas:', err),
     });
   }
+
+  cancelarReserva(id: number): void {
+    if (!confirm('¿Querés cancelar esta reserva?')) return;
+
+    this.reservaService.cancelar(id).subscribe({
+      next: () => {
+        // La reserva queda "cancelada": se saca de las listas visibles
+        this.reservas.update((actual) =>
+          actual.map((r) => (r.id === id ? { ...r, estado: 'cancelada' } : r)),
+        );
+      },
+      error: (err) => {
+        console.error('Error al cancelar la reserva:', err);
+        alert(err.error?.error ?? 'No se pudo cancelar la reserva.');
+      },
+    });
+  }
 }

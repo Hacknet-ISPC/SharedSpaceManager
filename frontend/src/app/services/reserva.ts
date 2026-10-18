@@ -16,4 +16,8 @@ export class ReservaService {
   crear(reserva: NuevaReserva): Observable<Reserva> {
     return this.http.post<Reserva>(this.api, reserva);
   }
+
+  cancelar(id: number): Observable<Reserva> {
+    return this.http.patch<Reserva>(`${this.api}${id}/cancelar/`, {});
+  }
 }
