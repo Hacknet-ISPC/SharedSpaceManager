@@ -1,191 +1,184 @@
-# SharedSpaceManager
+﻿# Esquiú 3 - Sistema de Gestión y Reserva de Canchas de Fútbol
 
 ## Introducción
 
-**SharedSpaceManager** es un sistema web de gestión de reservas de espacios compartidos diseñado para que cualquier persona pueda reservar salas de reuniones, espacios de coworking y otros ambientes de trabajo de manera simple, rápida y organizada.
+**Esquiú 3** es una plataforma web desarrollada para la gestión y reserva de turnos en el complejo de fútbol referente de Córdoba. Permite a los jugadores y equipos consultar disponibilidad en tiempo real, reservar canchas de fútbol (Fútbol 8 y Fútbol 11, tanto en césped sintético como natural) y organizar sus partidos de forma ágil, cómoda y sin intermediarios.
 
-El sistema surge como respuesta a la creciente demanda de espacios de trabajo flexibles, donde la administración manual de reservas genera conflictos de disponibilidad, pérdida de tiempo y falta de visibilidad sobre el uso real de los espacios. SharedSpaceManager centraliza todo el proceso en una plataforma digital accesible, permitiendo a los usuarios gestionar sus reservas en cualquier momento y desde cualquier dispositivo.
-
----
-
-## Funcionalidades
-
-### Gestión de usuarios
-
-- **Registro de usuario:** cualquier persona puede crear una cuenta en el sistema ingresando sus datos personales. Al completar el registro, el sistema envía una notificación de confirmación.
-- **Inicio de sesión:** los usuarios registrados acceden a la plataforma mediante su correo electrónico y contraseña.
-- **Recuperación de contraseña:** en caso de olvidar sus credenciales, el usuario puede solicitar un enlace de recuperación que el sistema envía a su correo registrado.
-
-### Gestión de espacios
-
-- **Consulta de espacios disponibles:** los usuarios pueden visualizar los espacios disponibles filtrando por fecha, horario y capacidad.
-- **Reserva de espacio:** el usuario selecciona el espacio deseado, elige fecha y franja horaria, y confirma la reserva. El sistema verifica la disponibilidad en tiempo real.
-- **Cancelación de reserva:** el usuario puede cancelar una reserva activa desde su panel personal.
-- **Consulta de reservas propias:** el usuario accede al historial y estado de todas sus reservas.
-
-### Métricas y reportes
-
-- **Espacios más solicitados:** el sistema identifica y muestra los espacios con mayor cantidad de reservas en un período determinado.
-- **Uso por horario:** se visualiza la distribución de reservas según la franja horaria, permitiendo identificar los momentos de mayor demanda.
-- **Porcentaje de ocupación diaria:** el sistema calcula y presenta el nivel de ocupación de cada espacio por día, facilitando la toma de decisiones sobre la disponibilidad y administración de los mismos.
+El sistema digitaliza el proceso tradicional de reservas telefónicas o presenciales, evitando superposiciones de turnos, optimizando la ocupación del predio y facilitando la administración integral de las canchas, estados y horarios.
 
 ---
 
-## **Instalacion y ejecucion (Maqueta)**
+## Funcionalidades Principales
 
-Para ejecutar el proyecto correctamente se recomienda seguir estos pasos:
+### Gestión de Usuarios y Autenticación
+- **Registro de jugadores:** creación de cuentas con validación de datos personales.
+- **Inicio de sesión y roles:** acceso diferenciado para clientes/jugadores y administradores del complejo.
+- **Perfil de usuario:** consulta y administración de datos de contacto.
 
-- Obtener archivos del proyecto
-    
-  ◦ Opcion A: clonar el repositorio "SharedSpaceManager"
-  
-  ◦ Opcion B: descargar el archivo .ZIP del proyecto y luego descomprimirloIngresar dentro de la carpeta "maqueta"Abrir el archivo "index.html" para abrir el proyecto de manera local.
-    
-- Ingresar dentro de la carpeta "maqueta"
-- Abrir el archivo "index.html" para abrir el proyecto de manera local.
+### Reserva de Canchas y Turnos
+- **Disponibilidad en tiempo real:** visualización de canchas libres filtrando por fecha, franja horaria y tipo de cancha (Fútbol 8, Fútbol 11, superficie sintética o natural).
+- **Control de disponibilidad:** verificación automática que previene solapamiento de horarios o reservas sobre canchas en mantenimiento.
+- **Confirmación instantánea:** asignación de turno con detalles de fecha, horario y cancha seleccionada.
+- **Mis Reservas:** panel donde cada usuario visualiza sus próximos partidos, estado del turno (pendiente, confirmada, cancelada o finalizada) y su historial.
+- **Cancelación de turnos:** posibilidad de dar de baja una reserva desde el panel personal.
 
-## **Instalacion y ejecucion (Frontend)**
-### 1. Instalar Node.js
+### Panel de Administración (Gestión del Predio)
+- **Gestión de canchas:** alta, modificación y control de estado de las canchas (disponible / mantenimiento).
+- **Control de reservas:** supervisión general de turnos, confirmaciones y cancelaciones.
+- **Métricas operativas:** visualización de demanda por horarios y niveles de ocupación de las canchas.
 
-Descargá e instalá Node.js desde el sitio oficial:
+---
 
-[https://nodejs.org/](https://nodejs.org/)
+## Instalación y ejecución (Maqueta)
 
-Se recomienda instalar la versión **LTS** (Long Term Support).
+Para visualizar la maqueta estática inicial del proyecto:
 
-Para verificar que Node.js y npm se instalaron correctamente, ejecutá en la terminal:
+1. **Obtener los archivos:**
+   - **Opción A:** Clonar el repositorio:
+     ```bash
+     git clone https://github.com/Hacknet-ISPC/SharedSpaceManager.git
+     ```
+   - **Opción B:** Descargar el archivo `.ZIP` desde GitHub y descomprimirlo.
 
+2. Ingresar a la carpeta `maqueta`.
+3. Abrir el archivo `index.html` en el navegador.
+
+---
+
+## Instalación y ejecución (Frontend)
+
+El frontend está desarrollado con **Angular** y **Bootstrap**.
+
+### 1. Requisitos previos
+- **Node.js** (versión LTS recomendada) → [https://nodejs.org/](https://nodejs.org/)
+- **Angular CLI** instalado globalmente:
+  ```bash
+  npm install -g @angular/cli
+  ```
+
+### 2. Clonar e ingresar al proyecto
 ```bash
-node -v
-npm -v
+git clone https://github.com/Hacknet-ISPC/SharedSpaceManager.git
+cd SharedSpaceManager/frontend
 ```
 
-Esto debería mostrar las versiones instaladas de cada uno.
-
-### 2. Instalar Angular CLI
-
-Con Node.js y npm ya instalados, instalá Angular CLI de forma global ejecutando:
-
-```bash
-npm install -g @angular/cli
-```
-
-Para verificar que se instaló correctamente:
-
-```bash
-ng version
-```
-
-### 3. Clonar el repositorio
-
-Cloná este repositorio en tu máquina local:
-
-```bash
-git clone https://github.com/usuario/nombre-del-repositorio.git
-```
-
-Luego, ingresá a la carpeta del proyecto:
-
-```bash
-cd nombre-del-repositorio
-```
-
-### 4. Instalar las dependencias del proyecto
-
-Dentro de la carpeta del proyecto, instalá todas las dependencias necesarias:
-
+### 3. Instalar dependencias
 ```bash
 npm install
 ```
 
-## Ejecución del proyecto
+### 4. Ejecución del Frontend
 
-Para levantar el servidor de desarrollo de Angular, ejecutá:
+Para utilizar la aplicación completa se requieren dos terminales:
 
+**Terminal 1 — Servidor de desarrollo Angular:**
 ```bash
 ng serve
 ```
+> La aplicación estará disponible en: `http://localhost:4200/`
 
-Por defecto, la aplicación quedará disponible en:
-
-```text
-http://localhost:4200/
-```
-
-La app se recargará automáticamente cada vez que modifiques algún archivo del código fuente.
-
-### Base de datos con JSON Server
-
-El proyecto utiliza **JSON Server** para simular una API REST y gestionar los datos utilizados por la aplicación.
-
-Los datos se almacenan en el archivo:
-
-```text
-db.json
-```
-
-Para iniciar el servidor de JSON Server, ejecutá en **otra terminal**:
-
+**Terminal 2 — JSON Server (Mock API para desarrollo):**
 ```bash
 npm run server
 ```
-
-Por defecto, la API estará disponible en:
-
-```text
-http://localhost:3000/
-```
-
-A partir de esta URL se pueden acceder a los diferentes recursos definidos en `db.json`. Por ejemplo:
-
-```text
-http://localhost:3000/roles
-http://localhost:3000/usuarios
-http://localhost:3000/espacios
-http://localhost:3000/reservas
-http://localhost:3000/desarrolladores
-```
-
-> **Importante:** Para utilizar la aplicación correctamente, es necesario mantener ejecutados ambos servidores:
->
-> * **Angular:** `ng serve` → `http://localhost:4200/`
-> * **JSON Server:** `npm run server` → `http://localhost:3000/`
-
-### Resumen
-
-Abrí **dos terminales** dentro del proyecto:
-
-**Terminal 1 — Angular:**
-
-```bash
-ng serve
-```
-
-**Terminal 2 — JSON Server:**
-
-```bash
-npm run server
-```
-
-Luego ingresá a:
-
-```text
-http://localhost:4200/
-```
+> La API simulada estará disponible en: `http://localhost:3000/` con endpoints para `usuarios`, `roles`, `espacios`/`canchas`, `reservas` y `desarrolladores`.
 
 ---
 
-## Tecnologías utilizadas
+## Instalación y ejecución (Backend)
 
-> HTLM5, CSS3, Bootstrap y Angular 22
+El backend está desarrollado con **Django** y **Django REST Framework**, conectado a una base de datos **MySQL**.
+
+### Requisitos previos
+- **Python 3.10+** → [https://www.python.org/](https://www.python.org/)
+- **MySQL Server** → [https://www.mysql.com/](https://www.mysql.com/)
+
+### 1. Crear y activar el entorno virtual
+Dentro de la carpeta `backend`:
+
+```bash
+cd backend
+
+# Crear entorno virtual
+python -m venv venv
+
+# Activar en Windows
+venv\Scripts\activate
+
+# Activar en Linux/Mac
+source venv/bin/activate
+```
+
+### 2. Instalar dependencias
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configuración del archivo `.env`
+Crear un archivo `.env` dentro de la carpeta `backend` con las credenciales de conexión:
+
+```env
+DB_NAME=esquiu3
+DB_USER=root
+DB_PASSWORD=tu_contraseña_mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+```
+
+### 4. Base de datos y migraciones
+Crear la base de datos en MySQL:
+```sql
+CREATE DATABASE esquiu3 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+Aplicar las migraciones de Django:
+```bash
+python manage.py migrate
+```
+
+### 5. Iniciar el servidor Django
+```bash
+python manage.py runserver
+```
+> El servidor quedará activo en: `http://localhost:8000/`
+
+### Endpoints principales del Backend
+
+| Módulo | Endpoint | Descripción |
+|---|---|---|
+| **Canchas** | `http://localhost:8000/api/v1/canchas/` | Listado y detalle de canchas, tipos y superficies |
+| **Reservas** | `http://localhost:8000/api/v1/reservas/` | Creación, consulta y cancelación de turnos |
+| **Usuarios** | `http://localhost:8000/api/v1/usuarios/` | Registro, autenticación y gestión de usuarios |
+| **Admin Django** | `http://localhost:8000/admin/` | Panel administrativo nativo |
 
 ---
 
-## Equipo
+## Tecnologías Utilizadas
 
-- Victor Antonio Oviedo
-- Agustin Tanno
-- Marcos David Reinoso Cavoli
-- Maribel Riesgo
-- Gadiel Ezequiel Silva Monteabaro
-- Fabricio Andres Cocconi Huenz
+### Frontend
+- **Angular 22**
+- **TypeScript**
+- **HTML5 & CSS3**
+- **Bootstrap 5.3**
+- **JSON Server**
+
+### Backend & Base de Datos
+- **Python**
+- **Django 6.1**
+- **Django REST Framework**
+- **MySQL**
+- **django-cors-headers**
+- **python-dotenv**
+
+---
+
+## Equipo de Desarrollo
+
+| Integrante | Rol | Contacto |
+|---|---|---|
+| Victor Antonio Oviedo | Desarrollador | [LinkedIn](https://www.linkedin.com/in/victor-a-oviedo/) |
+| Agustín Tanno | Desarrollador | [LinkedIn](https://www.linkedin.com/in/agustin-tanno-6513542a9/) |
+| Marcos David Reinoso Cavoli | Desarrollador | [LinkedIn](https://www.linkedin.com/in/marcos-david-reinoso-cavoli-67a954375/) |
+| Maribel Riesgo | Desarrolladora | [LinkedIn](https://www.linkedin.com/in/maribel-riesgo/) |
+| Gadiel Ezequiel Silva Monteabaro | Desarrollador | [LinkedIn](https://www.linkedin.com/in/gadiel-silva-monteabaro-4353a9273/) |
+| Fabricio Andrés Cocconi Huenz | Desarrollador | [LinkedIn](https://www.linkedin.com/in/fabricio-andr%C3%A9s-cocconi-huenz-9592ab356/) |
