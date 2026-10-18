@@ -5,34 +5,53 @@
 
 /* --- Hero Section --- */
 .hero {
-    padding: 120px 0;
+    position: relative;
+    padding: 130px 0 110px;
     text-align: center;
-    background-color: var(--bg-dark);
+    background: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.52)),
+                url('/cancha-fondo.jpeg') center 60% / cover no-repeat;
+    color: #ffffff;
 }
 
 .hero-title {
-    font-size: 3.2rem;
+    font-size: 3.4rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
-    color: var(--text-main);
+    color: #ffffff;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.8);
 }
 
 .hero-title-highlight {
-    color: var(--primary);
+    color: var(--accent);
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 680px;
+    font-size: 1.25rem;
+    color: #ffffff;
+    max-width: 760px;
     margin: 0 auto 40px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+    line-height: 1.6;
 }
 
 .hero-buttons {
     display: flex;
     gap: 16px;
     justify-content: center;
+}
+
+.hero .btn-outline {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(6px);
+}
+
+.hero .btn-outline:hover {
+    background-color: #ffffff;
+    color: #0b090a;
+    border-color: #ffffff;
 }
 
 /* --- Secciones Generales --- */
