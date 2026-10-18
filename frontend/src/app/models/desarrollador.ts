@@ -1,5 +1,5 @@
 export interface Desarrollador {
-  id_desarrollador: number;
+  id: number;
   nombre: string;
   rol: string;
   linkedin: string;
